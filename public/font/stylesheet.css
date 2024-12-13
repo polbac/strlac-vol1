@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'PxPlus IBM VGA8';
+    src: url('PxPlus_IBM_VGA8.woff2') format('woff2'),
+        url('PxPlus_IBM_VGA8.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
