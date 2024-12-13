@@ -5,12 +5,15 @@ import { Transition } from "../../components/Transition";
 import { DATA } from "../../data";
 
 import Link from "next/link";
+import { useRouter } from "next/router";
 
-export default function Artistxs({ params }) {
-  const slug = params.slug[0];
+export default function Artistxs() {
+  const router = useRouter();
+
+  const slug = router?.query?.slug?.[0];
   const data = DATA.find((a) => a.slug === slug);
 
-  const [loading, setLoading] = useState(true);
+  const [, setLoading] = useState(true);
   const [myImage, setImg] = useState<HTMLImageElement | null>(null);
   const parentRef = useRef<HTMLDivElement>(null);
 
@@ -48,32 +51,32 @@ export default function Artistxs({ params }) {
             )}
 
             <p style={{ fontSize: "1.5rem", marginTop: "20px" }}>RRSS</p>
-            {data.instagram && (
+            {data?.instagram && (
               <a className="rrss" href={data.instagram}>
                 instagram
               </a>
             )}
-            {data.soundcloud && (
+            {data?.soundcloud && (
               <a className="rrss" href={data.soundcloud}>
                 soundcloud
               </a>
             )}
-            {data.website && (
+            {data?.website && (
               <a className="rrss" href={data.website}>
                 website
               </a>
             )}
-            {data.linktree && (
+            {data?.linktree && (
               <a className="rrss" href={data.linktree}>
                 linktree
               </a>
             )}
-            {data.x && (
+            {data?.x && (
               <a className="rrss" href={data.x}>
                 x
               </a>
             )}
-            {data.youtube && (
+            {data?.youtube && (
               <a className="rrss" href={data.youtube}>
                 youtube
               </a>

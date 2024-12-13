@@ -9,7 +9,7 @@ export const Thumb: FC<{ slug: string; name: string; image: string }> = ({
   name,
   image,
 }) => {
-  const [loading, setLoading] = useState(true);
+  const [, setLoading] = useState(true);
   const [myImage, setImg] = useState<HTMLImageElement | null>(null);
   const parentRef = useRef<HTMLDivElement>(null);
 

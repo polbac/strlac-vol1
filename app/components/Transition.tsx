@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 
-export const Transition = ({ children }) => {
+export const Transition: FC<{ children: React.ReactNode }> = ({ children }) => {
   const [show, setShow] = useState(false);
   useEffect(() => {
     setTimeout(() => {
