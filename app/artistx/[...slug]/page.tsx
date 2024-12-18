@@ -5,12 +5,12 @@ import { Transition } from "../../components/Transition";
 import { DATA } from "../../data";
 
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 export default function Artistxs() {
-  const router = useRouter();
+  const pathname = usePathname();
 
-  const slug = router?.query?.slug?.[0];
+  const slug = pathname.split("/")[2];
   const data = DATA.find((a) => a.slug === slug);
 
   const [, setLoading] = useState(true);
@@ -28,7 +28,7 @@ export default function Artistxs() {
       setImg(thisImg);
       setLoading(false);
     };
-  }, [data]);
+  }, [data, pathname]);
 
   return (
     <>

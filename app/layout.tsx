@@ -1,11 +1,13 @@
 "use client";
 import Meteors from "../components/ui/meteors";
+import { VideoAscii, ArtTypeEnum } from "video-stream-ascii";
+
 import Image from "next/image";
 import { Player } from "./components/Player";
 import "./globals.css";
 import Link from "next/link";
 import { Transition } from "./components/Transition";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Intro } from "./components/Intro";
 
 export default function RootLayout({
@@ -15,11 +17,19 @@ export default function RootLayout({
 }>) {
   const [showIntro, setShowIntro] = useState(true);
 
+  const [, setLoading] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const parentRef = useRef<HTMLDivElement>(null);
+  const preTagRef = useRef<HTMLPreElement>(null);
   useEffect(() => {
     setTimeout(() => setShowIntro(false), 4500);
   }, []);
+
   return (
     <html lang="en">
+      <head>
+        <title>STRLAC VOL 1</title>
+      </head>
       <body>
         <main className="scanlines">
           <div className="screen">

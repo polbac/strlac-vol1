@@ -89,4 +89,93 @@ Instrumentación: Sistema Aleas : Modular Eurorack
     trackName: "Études profanes n.1 - Trampolim",
     ficha: `recorded on International Drone Day, this live improvisation set captured my deepest feelings in that moment. I was one month away from defending my Master’s thesis, and it was a beautiful day. blue sky, warm soft breeze. so I sat on the grass and played a song inspired by the great expectations of that period in my life. the fear of fa(i, l)ling, the utopian dreams...`,
   },
+
+  {
+    name: "BASURA",
+    bio: `
+    ¿Que tienen en común un tutorial para usar un teléfono a disco, un reporte del clima de Corea del Norte, una mono tocando la batería, una visita guiada por una fábrica de cerveza, Klaus Kinski gritando desde un campanario, un soneto de Shakespeare, un rapero freestyle de Tailandia, un consejo de Patti Smith, de Dolores Ibárruri o de Kurt Vonnegut, el avistaje de un ovni, un concurso de deletreo en Panamá, una entrevista a un esquizofrénico o unos gatitos tropezando? <br/>
+
+No lo sabemos.<br/>
+
+BASURA es un dúo sonoro experimental para guitarra eléctrica y video-sampler. Tanto en su formato live-set como en sus instalaciones y sus producciones digitales, BASURA resignifica el vicio inútil del web-surfing trabajando desde la improvisación musical, sobre una excéntrica colección de archivos rescatados de internet. Cual antena parabólica BASURA capta las señales de la globalidad digitalizada y las trans/deforma en tiempo real. BASURA mezcla peras con manzanas sin vergüenza alguna.<br/>
+
+BASURA inició sus experimentos performáticos en el 2018 y desde entonces se han presentado en diversos festivales, ciclos, streamings y eventos varios tales como Ciclo Ruido (Centro Cultural Kirchner, 2021), Festival Exit (Uruguay, 2023), FIMM (UNQ, 2023), Encuentro Nacional de Composición Musical del IUPA, Festival Distat Terra, Te veré Llorar, Mínimo un Lunes, Carnaval Basura en Roseti y Ruido en la Sala entre otros. En 2020 grabaron y editaron el cassette “Zapping” (TvlRec). En 2023 editaron un sencillo en formato diskette 3 1/2 y en diciembre 2024 lanzarán el disco-objeto “Dos cosas” (Inkilino records).
+`,
+    thumb: "basura.png",
+    slug: "basura",
+    instagram: "https://www.instagram.com/pabloboltshauser/",
+    youtube: "https://www.youtube.com/@bbaassuurraa",
+    trackName: "ZPNG 8",
+    ficha: `Buenos Aires 2024. Grabado, editado y mezclado por BASURA (Pablo Boltshauser - Valentin Pelisch)
+
+`,
+  },
+
+  {
+    name: "MAQ",
+    bio: `
+    Macarena Aguilar Tau, aka MAQ, es compositora y productora nacida en La Plata, Argentina. Su trabajo combina instrumentos acústicos, electrónicos, grabaciones de campo y material de archivo. MAQ experimenta con el sonido desde la ejecución, el registro y el procesamiento de audio. Presentó su música en conciertos, performances e instalaciones, y fue parte de festivales nacionales e internacionales. Su trabajo fue reconocido con becas y premios otorgados por diversas instituciones. Es docente universitaria y dicta sus propios talleres. Además, se desempeña como diseñadora de sonido para diversos formatos audiovisuales.
+
+    `,
+    thumb: "maq.png",
+    slug: "maq",
+    bandcamp: "https://bandcamp.com/javierarealvelez",
+    website: "https://www.javierarealvelez.com.ar",
+    instagram: "https://www.instagram.com/maq.arena/",
+    soundcloud: "https://soundcloud.com/maq-arena",
+    trackName: "Memoria Fonográfica",
+    ficha: `Producida en 2022 con registros sonoros del Archivo General de la Nación de 1982 y 1983. Esta pieza obtuvo el premio AGN a piezas sonoras 2023 organizado por el CCK y AGN.`,
+  },
+
+  {
+    name: "Javier Areal",
+    bio: `
+    Javier Areal Vélez (Buenos Aires) es compositor, improvisador y gestor cultural. 
+Actualmente investiga formatos de colaboración humanx-máquina para la interpretación de música electrónica en vivo, explorando la superposición (poli)ritmos generativos mediante el uso de samples, síntesis, luces y robots. El primer disco de este proyecto será editado en 2025 en el sello alemán Mille Plateaux / Force Inc.
+Javier además se desarrolló como improvisador de guitarra eléctrica preparada, mediante proyectos estables como CALATO y colaboraciones con artistas como Heiner Goebbels, Shayna Dunkelman, Chris Pitsiokos y Violeta García, entre otros.
+Realizó conciertos en Sudamérica, Norteamérica, Europa y Japón, y editó discos en sellos de todo el mundo. 
+Es fundador y director del ciclo de música experimental RUIDO y coordinó el Centro de Arte Sonoro (CASo) desde 2021 hasta su cierre por parte del gobierno fascista actual.
+
+
+    `,
+    thumb: "sombra.png",
+    slug: "javier",
+    bandcamp: "https://bandcamp.com/javierarealvelez",
+    website: "https://www.javierarealvelez.com.ar",
+    facebook: "facebook.com/javierarealvelez",
+    youtube: "https://youtube.com/@javierarealvelez",
+    instagram: "https://instagram.com/javierarealvelez",
+    trackName: "aprieta, percute, martilla",
+    soundcloud: "https://soundcloud.com/javierarealvelez/",
+    ficha: `Grabado en vivo en el festival EXIT 2022, Montevideo.<br/>
+Javier Areal Vélez: laptop.
+`,
+  },
+
+  {
+    name: "SOMBRA",
+    bio: `
+    Sombra (aka: Iván González), oriundo de Catamarca, con sede en Córdoba, es músico
+experimental, artista sonoro y acompañante terapéutico. Integró el colectivo de performance
+multimedia “Las hijas de Israel”, produjo ciclos de música experimental como ser: “Movimiento
+sotánico”. Participa asiduamente en la escena de improvisación cordobesa presentando su
+material en vivo, produciendo ciclos de música experimental y presentaciones en diversos
+festivales, centros culturales, galerías de arte y clubes de diferentes ciudades del país.
+Su diseño sonoro está plagado de paisajes y texturas oscuras y melancólicas, compuestos
+por múltiples procesos de síntesis digital y analógica, grabaciones de campo, foley y
+detalles granulares.<br/>
+Ha compartido proyectos y escenarios con artistas como Damo Suzuki, Daniel Melero, Silverio,
+Dave Phillips, entre otros. Como así también colaboraciones con diversos artistas de la escena
+subterránea Argentina entre otros.
+
+    `,
+    thumb: "sombra.png",
+    slug: "sombbra",
+    bandcamp: "https://sombra1.bandcamp.com/",
+    instagram: "https://www.instagram.com/sombra_.1/?hl=es",
+    bandcamp: "lixt.bandcamp.com",
+    trackName: "Cuesta 02",
+    soundcloud: " https://soundcloud.com/ivan-gonzalez-122244877",
+    ficha: `Grabado en estudio, durante el año 2023 en Córdoba capital.`,
+  },
 ];
