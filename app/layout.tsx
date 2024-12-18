@@ -7,7 +7,7 @@ import { Player } from "./components/Player";
 import "./globals.css";
 import Link from "next/link";
 import { Transition } from "./components/Transition";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, LegacyRef } from "react";
 import { Intro } from "./components/Intro";
 
 export default function RootLayout({
@@ -58,7 +58,10 @@ export default function RootLayout({
                 ) : (
                   <div className="flex cols-container">
                     <Player />
-                    <div className="col1" ref={scrollRef}>
+                    <div
+                      className="col1"
+                      ref={scrollRef as unknown as LegacyRef<HTMLDivElement>}
+                    >
                       <Image
                         src={"/brand.png"}
                         alt="srtlac"
