@@ -11,17 +11,19 @@ body {
   justify-content: center;
   align-items: center;
   background: black;
-  color: #02f503;
+  color: #fcfcfc;
+  background-image: url(/textures/8.jpeg);
 }
 
 .app-container {
-  border: 1px solid #02f503;
+  border: 10px ridge white;
   border-radius: 10px;
   max-width: 1200px;
   margin: auto;
   width: 100%;
   animation: jerkup 100ms infinite;
   height: 90vh;
+  background-image: url(/textures/3.jpeg);
 }
 
 .app-container::after {
@@ -42,11 +44,11 @@ body {
   flex: 1;
 
   overflow-y: scroll;
-  height: 89vh;
+  height: 86vh;
 }
 .col2 {
   width: 300px;
-  animation: 5s ease 2000ms normal none infinite running glitch;
+
   display: block;
 }
 
@@ -252,26 +254,19 @@ body {
   padding: 1rem;
   width: 100%;
   display: block;
-  border: 2px solid white;
+  border: 2px inner black;
   position: relative;
-}
-.button:hover {
-  border: 2px solid #02f503;
+  background-image: url(/textures/2.jpeg);
+  border: 4px ridge transparent;
 }
 
-.button.active::after,
-.button:hover::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #02f503;
-  mix-blend-mode: overlay;
+.button.active,
+.button:hover {
+  border: 4px ridge white;
 }
 .col2 {
   padding-top: 4rem;
+  background-image: url(/textures/6.jpeg);
 }
 .col2 .button {
   margin-bottom: 1rem;
@@ -284,7 +279,7 @@ body {
 
 .artistxs {
   display: flex;
-  gap: 7rem;
+  gap: 3rem;
   flex-wrap: wrap;
 }
 
@@ -319,6 +314,9 @@ body {
   width: 25%;
 }
 
+.artistx .left img {
+  border: 10px ridge white;
+}
 .artistx .right {
   flex: 1;
   padding-left: 15px;
@@ -338,7 +336,7 @@ body {
 }
 
 * {
-  cursor: url("/cursor.png"), auto;
+  cursor: url("/cursor.cur"), auto;
 }
 
 .str-vol-1 {
@@ -346,6 +344,7 @@ body {
   top: 0;
   left: 0;
   transform: translateX(-15px) translateY(-15px);
+  z-index: 999999;
 }
 
 .intro {
@@ -421,10 +420,10 @@ body {
 }
 .thumb {
   position: relative;
-  animation: 5s ease 2000ms normal none infinite running glitch;
 }
 .thumb img {
   height: 200px !important;
+  border: 10px ridge white;
 }
 
 .thumb:hover::after {
@@ -446,6 +445,7 @@ body {
   z-index: 99;
   font-size: 13px;
   background-color: black;
+  display: none;
 }
 
 @media (max-width: 640px) {
@@ -498,7 +498,6 @@ body {
   }
 
   .thumb:hover {
-    color: black;
   }
 
   .thumb img {
@@ -525,5 +524,9 @@ body {
 
   .redes {
     display: none;
+  }
+
+  .col2 {
+    background-image: none;
   }
 }

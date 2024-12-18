@@ -18,10 +18,19 @@ export default function RootLayout({
   const [showIntro, setShowIntro] = useState(true);
   const pathname = usePathname();
   const scrollRef = useRef<HTMLDivElement>();
+  const [backgroundPositionY, setBackgroundPosition] = useState(0);
 
   useEffect(() => {
     setTimeout(() => setShowIntro(false), 4500);
   }, []);
+
+  useEffect(() => {
+    const i = setInterval(
+      () => setBackgroundPosition(backgroundPositionY - 1),
+      100
+    );
+    return () => clearInterval(i);
+  }, [setBackgroundPosition, backgroundPositionY]);
 
   useEffect(() => {
     if (!scrollRef?.current?.scrollTop) {
@@ -59,7 +68,12 @@ export default function RootLayout({
                       />
                       <div>{children}</div>
                     </div>
-                    <div className="col2">
+                    <div
+                      className="col2"
+                      style={{
+                        backgroundPositionX: `${backgroundPositionY}px`,
+                      }}
+                    >
                       <Transition>
                         <Link
                           className={`button ${
@@ -69,9 +83,7 @@ export default function RootLayout({
                         >
                           <img src="/compilado.png" width="100" />
                         </Link>
-                      </Transition>
 
-                      <Transition>
                         <Link
                           className={`button ${
                             pathname.indexOf("artistx") !== -1 && "active"
@@ -80,30 +92,30 @@ export default function RootLayout({
                         >
                           <img src="/artistxs.png" width="90" />
                         </Link>
+                        <div className="redes">
+                          <a
+                            target="_blank"
+                            className="rrss"
+                            href="https://strlacrecords.bandcamp.com/"
+                          >
+                            → bandcamp
+                          </a>
+                          <a
+                            target="_blank"
+                            className="rrss"
+                            href="https://www.instagram.com/strlacrecords/"
+                          >
+                            → instagram
+                          </a>
+                          <a
+                            target="_blank"
+                            className="rrss"
+                            href="https://soundcloud.com/strlac-records"
+                          >
+                            → soundcloud
+                          </a>
+                        </div>
                       </Transition>
-                      <div className="redes">
-                        <a
-                          target="_blank"
-                          className="rrss"
-                          href="https://strlacrecords.bandcamp.com/"
-                        >
-                          → bandcamp
-                        </a>
-                        <a
-                          target="_blank"
-                          className="rrss"
-                          href="https://www.instagram.com/strlacrecords/"
-                        >
-                          → instagram
-                        </a>
-                        <a
-                          target="_blank"
-                          className="rrss"
-                          href="https://soundcloud.com/strlac-records"
-                        >
-                          → soundcloud
-                        </a>
-                      </div>
                     </div>
                   </div>
                 )}

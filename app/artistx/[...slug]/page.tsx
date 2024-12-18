@@ -69,12 +69,12 @@ export default function Artistxs() {
             </h2>
           </Transition>
           <Transition>
-            <p dangerouslySetInnerHTML={{ __html: data?.bio }}></p>
+            <p dangerouslySetInnerHTML={{ __html: data?.bio || "" }}></p>
             <br />
             <u>Track:</u> {data?.trackName}
             <br />
             <u>Ficha técnica:</u>
-            <p dangerouslySetInnerHTML={{ __html: data?.ficha }}></p>
+            <p dangerouslySetInnerHTML={{ __html: data?.ficha || "" }}></p>
           </Transition>
         </div>
       </div>
