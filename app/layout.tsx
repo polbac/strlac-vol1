@@ -1,6 +1,6 @@
 "use client";
 import Meteors from "../components/ui/meteors";
-import { VideoAscii, ArtTypeEnum } from "video-stream-ascii";
+import { usePathname } from "next/navigation";
 
 import Image from "next/image";
 import { Player } from "./components/Player";
@@ -16,14 +16,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const [showIntro, setShowIntro] = useState(true);
+  const pathname = usePathname();
+  const scrollRef = useRef<HTMLDivElement>();
 
-  const [, setLoading] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const parentRef = useRef<HTMLDivElement>(null);
-  const preTagRef = useRef<HTMLPreElement>(null);
   useEffect(() => {
     setTimeout(() => setShowIntro(false), 4500);
   }, []);
+
+  useEffect(() => {
+    if (!scrollRef?.current?.scrollTop) {
+      return;
+    }
+
+    scrollRef.current.scrollTop = 0;
+  }, [pathname, scrollRef]);
 
   return (
     <html lang="en">
@@ -35,34 +41,69 @@ export default function RootLayout({
           <div className="screen">
             <div className="overlay">
               <div className="app-container ">
+                <p className="copy">PRIMER COMPILADO STRLAC 2024</p>
                 <Meteors />
+
                 {showIntro ? (
                   <Intro />
                 ) : (
-                  <div className="flex">
+                  <div className="flex cols-container">
                     <Player />
-                    <div className="col1">
+                    <div className="col1" ref={scrollRef}>
                       <Image
                         src={"/brand.png"}
                         alt="srtlac"
                         width={250}
                         height={200}
-                        className="str-vol-1"
+                        className="str-vol-1 glitch-effect"
                       />
                       <div>{children}</div>
                     </div>
                     <div className="col2">
                       <Transition>
-                        <Link className="button" href="/">
+                        <Link
+                          className={`button ${
+                            pathname.indexOf("artistx") === -1 && "active"
+                          }`}
+                          href="/"
+                        >
                           <img src="/compilado.png" width="100" />
                         </Link>
                       </Transition>
-                      <div></div>
+
                       <Transition>
-                        <Link className="button" href="/artistxs">
+                        <Link
+                          className={`button ${
+                            pathname.indexOf("artistx") !== -1 && "active"
+                          }`}
+                          href="/artistxs"
+                        >
                           <img src="/artistxs.png" width="90" />
                         </Link>
                       </Transition>
+                      <div className="redes">
+                        <a
+                          target="_blank"
+                          className="rrss"
+                          href="https://strlacrecords.bandcamp.com/"
+                        >
+                          → bandcamp
+                        </a>
+                        <a
+                          target="_blank"
+                          className="rrss"
+                          href="https://www.instagram.com/strlacrecords/"
+                        >
+                          → instagram
+                        </a>
+                        <a
+                          target="_blank"
+                          className="rrss"
+                          href="https://soundcloud.com/strlac-records"
+                        >
+                          → soundcloud
+                        </a>
+                      </div>
                     </div>
                   </div>
                 )}

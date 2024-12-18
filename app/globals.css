@@ -40,7 +40,7 @@ body {
 }
 .col1 {
   flex: 1;
-  animation: 5s ease 2000ms normal none infinite running glitch;
+
   overflow-y: scroll;
   height: 89vh;
 }
@@ -248,14 +248,27 @@ body {
 }
 
 .button {
-  border: 1px solid #02f503;
   border-radius: 10px;
   padding: 1rem;
   width: 100%;
   display: block;
+  border: 2px solid white;
+  position: relative;
 }
 .button:hover {
   border: 2px solid #02f503;
+}
+
+.button.active::after,
+.button:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #02f503;
+  mix-blend-mode: overlay;
 }
 .col2 {
   padding-top: 4rem;
@@ -404,5 +417,113 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+.thumb {
+  position: relative;
+  animation: 5s ease 2000ms normal none infinite running glitch;
+}
+.thumb img {
+  height: 200px !important;
+}
+
+.thumb:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #02f503;
+  mix-blend-mode: darken;
+  pointer-events: none;
+}
+
+.copy {
+  position: absolute;
+  bottom: -10px;
+  right: 10px;
+  z-index: 99;
+  font-size: 13px;
+  background-color: black;
+}
+
+@media (max-width: 640px) {
+  .app-container {
+    width: 90%;
+  }
+  .col1,
+  .col2 {
+    width: 100%;
+  }
+
+  .cols-container {
+    display: block;
+  }
+
+  .menu-icon {
+    display: block;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    line-height: 6px;
+    font-size: 45px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+  }
+  .menu-icon:hover {
+    color: white;
+  }
+
+  .col2 {
+    position: fixed;
+    right: 0;
+    top: -40px;
+    width: 164px;
+  }
+
+  .button {
+    width: 100px;
+  }
+
+  .str-vol-1 {
+    width: 150px;
+  }
+
+  .thumb {
+    width: 100% !important;
+    margin-bottom: 50px;
+    height: auto !important;
+  }
+
+  .thumb:hover {
+    color: black;
+  }
+
+  .thumb img {
+    width: 100% !important;
+    height: 300px !important;
+  }
+
+  .artistxs {
+    display: block;
+    margin-top: 60px;
+  }
+
+  .artistx {
+    display: block;
+  }
+  .artistx .left {
+    margin-bottom: 40px;
+  }
+  .artistx .left,
+  .artistx .right {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .redes {
+    display: none;
   }
 }

@@ -9,40 +9,11 @@ export const Thumb: FC<{ slug: string; name: string; image: string }> = ({
   name,
   image,
 }) => {
-  const [, setLoading] = useState(true);
-  const [myImage, setImg] = useState<HTMLImageElement | null>(null);
-  const parentRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const thisImg = new Image();
-    thisImg.src = image;
-    thisImg.onload = () => {
-      setImg(thisImg);
-      setLoading(false);
-    };
-  }, [image]);
-
   return (
-    <div
-      className="thumb"
-      ref={parentRef}
-      style={{ width: "200px", height: "200px" }}
-    >
+    <div className="thumb" style={{ width: "200px", height: "200px" }}>
       <Link href={`artistx/${slug}`}>
         <Transition>
-          <div style={{ height: "150px" }}>
-            {myImage && (
-              <ImageAscii
-                image={myImage}
-                parentRef={parentRef}
-                artType={ArtTypeEnum.ASCII}
-                fontColor={"#02f503"}
-                charsPerLine={100}
-                charsPerColumn={100}
-                backgroundColor={"black"}
-              />
-            )}
-          </div>
+          <img src={image} style={{ height: "200px !important" }} />
         </Transition>
         <p style={{ textTransform: "uppercase", fontSize: "1rem" }}>{name}</p>
       </Link>

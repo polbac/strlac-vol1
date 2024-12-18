@@ -1,6 +1,5 @@
 "use client";
-import { ImageAscii, ArtTypeEnum } from "image-ascii-art";
-import { useEffect, useRef, useState } from "react";
+
 import { Transition } from "../../components/Transition";
 import { DATA } from "../../data";
 
@@ -13,72 +12,52 @@ export default function Artistxs() {
   const slug = pathname.split("/")[2];
   const data = DATA.find((a) => a.slug === slug);
 
-  const [, setLoading] = useState(true);
-  const [myImage, setImg] = useState<HTMLImageElement | null>(null);
-  const parentRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!data?.thumb) {
-      return;
-    }
-    const thisImg = new Image();
-
-    thisImg.src = `/${data?.thumb}`;
-    thisImg.onload = () => {
-      setImg(thisImg);
-      setLoading(false);
-    };
-  }, [data, pathname]);
-
   return (
     <>
       <Transition>
-        <Link href="/artistxs">← Volver</Link>
+        <Link
+          href="/artistxs"
+          className="rrss"
+          style={{ width: "96px", marginBottom: "20px" }}
+        >
+          ← Volver
+        </Link>
       </Transition>
+
       <div className="artistx">
-        <div className="left" ref={parentRef}>
+        <div className="left">
           <Transition>
-            {myImage && (
-              <ImageAscii
-                image={myImage}
-                parentRef={parentRef}
-                charsPerLine={30}
-                charsPerColumn={30}
-                artType={ArtTypeEnum.ASCII}
-                fontColor={"#02f503"}
-                backgroundColor={"black"}
-              />
-            )}
+            <img src={`/${data?.thumb}`} />
 
             <p style={{ fontSize: "1.5rem", marginTop: "20px" }}>RRSS</p>
             {data?.instagram && (
               <a className="rrss" href={data.instagram}>
-                instagram
+                → instagram
               </a>
             )}
             {data?.soundcloud && (
               <a className="rrss" href={data.soundcloud}>
-                soundcloud
+                → soundcloud
               </a>
             )}
             {data?.website && (
               <a className="rrss" href={data.website}>
-                website
+                → website
               </a>
             )}
             {data?.linktree && (
               <a className="rrss" href={data.linktree}>
-                linktree
+                → linktree
               </a>
             )}
             {data?.x && (
               <a className="rrss" href={data.x}>
-                x
+                → x
               </a>
             )}
             {data?.youtube && (
               <a className="rrss" href={data.youtube}>
-                youtube
+                → youtube
               </a>
             )}
           </Transition>
@@ -86,11 +65,16 @@ export default function Artistxs() {
         <div className="right">
           <Transition>
             <h2 style={{ marginBottom: "20px", fontWeight: "bold" }}>
-              {data?.name}
+              <u>{data?.name}</u>
             </h2>
           </Transition>
           <Transition>
-            <p>{data?.bio}</p>
+            <p dangerouslySetInnerHTML={{ __html: data?.bio }}></p>
+            <br />
+            <u>Track:</u> {data?.trackName}
+            <br />
+            <u>Ficha técnica:</u>
+            <p dangerouslySetInnerHTML={{ __html: data?.ficha }}></p>
           </Transition>
         </div>
       </div>
