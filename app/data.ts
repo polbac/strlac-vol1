@@ -173,7 +173,6 @@ subterránea Argentina entre otros.
     slug: "sombbra",
     bandcamp: "https://sombra1.bandcamp.com/",
     instagram: "https://www.instagram.com/sombra_.1/?hl=es",
-    bandcamp: "lixt.bandcamp.com",
     trackName: "Cuesta 02",
     soundcloud: " https://soundcloud.com/ivan-gonzalez-122244877",
     ficha: `Grabado en estudio, durante el año 2023 en Córdoba capital.`,
