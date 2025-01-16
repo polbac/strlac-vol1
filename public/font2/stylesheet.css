@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'TopazPlus a600a1200a4000';
+    src: url('TopazPlusa600a1200a4000.woff2') format('woff2'),
+        url('TopazPlusa600a1200a4000.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
