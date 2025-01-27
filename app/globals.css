@@ -5,7 +5,7 @@
 body {
   font-family: "TopazPlus a600a1200a4000", Arial, Helvetica, sans-serif;
   display: flex;
-  font-size: 1.5rem;
+  font-size: 0.75rem;
   width: 100vw;
   height: 100vh;
   justify-content: center;
@@ -104,8 +104,6 @@ body {
 }
 
 .app-container {
-  border: 5px double #0afe53;
-
   max-width: 1200px;
   margin: auto;
   width: 100%;
@@ -389,9 +387,12 @@ body {
 }
 
 .redes {
+  margin: auto;
   margin-top: 20px;
-  padding-left: 2rem;
-  padding-right: 2rem;
+
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
 }
 
 .scanline {
@@ -523,9 +524,44 @@ body {
   padding-left: 15px;
 }
 
+.trackColumn {
+  color: white;
+  border-bottom: 1px solid white;
+}
+
+.trackName {
+  text-align: left;
+  width: 53%;
+}
+
+.duration {
+  text-align: right;
+  width: 13%;
+}
+
+.track {
+  width: 33%;
+  text-align: left;
+}
+.trackField:hover {
+  background: #0afe53;
+  color: black;
+}
+.trackField {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tracks {
+  border: 5px double #0afe53;
+  width: 100%;
+  margin: auto;
+  padding: 2rem;
+}
+
 .rrss {
   text-decoration: underline;
-  font-size: 1.5rem;
+  font-size: 0.75rem;
   display: block;
 }
 
@@ -548,9 +584,14 @@ body {
 
 .intro {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  z-index: 999999999;
+  background: #1a1818;
+  overflow-y: scroll;
 }
 
 .home {
@@ -565,6 +606,8 @@ body {
   bottom: 0;
   width: 100%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 @layer base {
@@ -741,4 +784,84 @@ body {
   .col2 {
     background-image: none;
   }
+}
+
+.player {
+  width: 100%;
+  border: 5px double #0afe53;
+  height: 10vh;
+  position: fixed;
+  z-index: 99999999;
+  background: #1a1818;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+.bar {
+  flex: 1;
+}
+
+.bar .total,
+.bar .played {
+  width: 100%;
+  background: gray;
+  height: 25px;
+  position: absolute;
+  top: 0;
+}
+
+.bar {
+  position: relative;
+
+  margin-top: -26px;
+}
+.bar .played {
+  background: #0afe53;
+  width: 50%;
+}
+
+.playerTackName {
+  width: 20%;
+}
+
+.controls {
+  font-size: 1.5rem;
+  margin-top: 1px;
+  width: 20%;
+}
+
+.controls .play {
+  margin-top: -6px;
+}
+
+.play {
+  display: none;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from,
+  to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.intro pre {
+  font-family: monospace;
+  white-space: pre;
+  margin: 0;
+  color: #0afe53;
 }

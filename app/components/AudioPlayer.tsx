@@ -1,11 +1,34 @@
-import AudioPlayer from "react-h5-audio-player";
-import "react-h5-audio-player/lib/styles.css";
+"use client";
 
-export const Player = ()=>{
-    return (const Player = () => (
-  <AudioPlayer
-    autoPlay
-    src="http://example.com/audio.mp3"
-  />
-);)
-}
+import { useAudioPlayer } from "../context/AudioPlayerContext";
+
+export const AudioPlayer = () => {
+  const {
+    track,
+    tracks,
+    currentTrackIndex,
+    playerState,
+    playTrack,
+    pauseTrack,
+  } = useAudioPlayer();
+
+  return (
+    <div className="player">
+      <div className="controls">
+        <div className="play" onClick={playTrack}>
+          ▶
+        </div>
+        <div className="pause" onClick={pauseTrack}>
+          ||
+        </div>
+      </div>
+      <div className="playerTackName">
+        {track?.trackName || "No track selected"}
+      </div>
+      <div className="bar">
+        <div className="total"></div>
+        <div className="played" style={{ width: `${playerState.progress}%` }} />
+      </div>
+    </div>
+  );
+};

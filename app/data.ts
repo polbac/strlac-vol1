@@ -7,6 +7,7 @@ export const DATA = [
     linktree: "https://linktr.ee/Julia.Rossetti",
     instagram: "https://www.instagram.com/latigx/",
     trackName: "La escucha de un tallo",
+    duration: 1.23,
     ficha: `Buenos Aires, AR, 2023. 4<br/>
       Pieza sonora para el proyecto homónimo de Estefanía Santiago (https://vimeo.com/899304786)<br/>
       Sampleo de grabaciones de campo y de tutoriales de YouTube.`,
@@ -172,5 +173,26 @@ subterránea Argentina entre otros.
     trackName: "Cuesta 02",
     soundcloud: " https://soundcloud.com/ivan-gonzalez-122244877",
     ficha: `Grabado en estudio, durante el año 2023 en Córdoba capital.`,
+  },
+
+  {
+    name: "ARWY",
+    bio: `
+    Árwy es una artista e investigadora multidisciplinaria dedicada principalmente a la música y la performance. En su trabajo podemos encontrar inspiraciones del minimalismo, el ambient narrativo, la ciencia ficción, la poesía, la ópera, el noise, la fantasía y el arte gótico.
+Su música recrea una atmósfera hipnótica y onírica que a su vez es cruda, oscura y real.
+Podríamos identificar en sus creaciones, una fuerte semejanza con el mundo del anime, el butoh y el cine. 
+Se destaca su búsqueda con la voz: desde sus matices, lo que enuncia, grita, conmueve y rompe. En varias ocasiones, canta en un idioma inventado y usa técnicas guturales.
+Actualmente acaba de lanzar su álbum “Plutón”, un cuento sonoro que explora la relación entre la oscuridad y el hielo y sigue explorando en su última instalación “Un cyborg bajo el agua: mecánicas sensibles” (presentada en la Sala Dore Hoyer, UNSAM), una obra de arte sonoro que incluye diseño de sonido, grabaciones de campo y voces. 
+
+
+    `,
+    thumb: "profiles/arwy.png",
+    slug: "arwy",
+    bandcamp: "https://sombra1.bandcamp.com/",
+    instagram: "https://www.instagram.com/sombra_.1/?hl=es",
+    trackName: "Cálculos",
+    soundcloud: "https://soundcloud.com/a_r_w_y",
+    instagram: "https://www.instagram.com/a_r_w_y/",
+    ficha: `Tigre (Buenos Aires) 2024 / Árwy / Narrative Ambient`,
   },
 ];
