@@ -2,6 +2,7 @@
 import { useAudioPlayer, AudioTrack } from "./context/AudioPlayerContext";
 import { Transition } from "./components/Transition";
 import { DATA } from "./data";
+import Link from "next/link";
 
 export default function Home() {
   const { loadTrack, currentTrackIndex } = useAudioPlayer();
@@ -45,14 +46,15 @@ export default function Home() {
               <div className="duration">DURACIÓN</div>
             </div>
             {DATA.map((track) => (
-              <div
+              <Link
                 className="trackField"
-                onClick={() => onClickTrack(track as unknown as AudioTrack)}
+                /* onClick={() => onClickTrack(track as unknown as AudioTrack)} */
+                href={`/artistx/${track.slug}`}
               >
                 <div className="track">{track.name}</div>
                 <div className="trackName">{track.trackName}</div>
                 <div className="duration">{track.duration}MS</div>
-              </div>
+              </Link>
             ))}
           </div>
         </Transition>

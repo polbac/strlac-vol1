@@ -16,7 +16,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [showIntro, setShowIntro] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
   const pathname = usePathname();
   const scrollRef = useRef<HTMLDivElement>();
   const [backgroundPositionY, setBackgroundPosition] = useState(0);

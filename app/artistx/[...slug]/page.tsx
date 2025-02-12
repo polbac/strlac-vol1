@@ -16,7 +16,7 @@ export default function Artistxs() {
     <>
       <Transition>
         <Link
-          href="/artistxs"
+          href="/"
           className="rrss"
           style={{ width: "96px", marginBottom: "20px" }}
         >

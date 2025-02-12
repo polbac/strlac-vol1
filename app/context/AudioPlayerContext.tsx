@@ -1,12 +1,27 @@
 "use client";
 
-import { createContext, useContext, ReactNode, useState, useRef } from "react";
+import {
+  createContext,
+  useContext,
+  ReactNode,
+  useState,
+  useRef,
+  useEffect,
+} from "react";
+
+import { DATA } from "../data";
+
+const audio =
+  typeof window !== "undefined"
+    ? new Audio()
+    : ({} as { play: () => void; src: "" });
 
 export interface AudioTrack {
   path: string;
   artist: string;
   trackName: string;
   duration: number;
+  file: string;
 }
 
 interface PlayerState {
@@ -35,11 +50,26 @@ interface AudioPlayerContextType {
   handleTimeUpdate: () => void;
   seekTo: (percentage: number) => void;
   track?: AudioTrack;
+  /* audio: Audio; */
 }
 
 const AudioPlayerContext = createContext<AudioPlayerContextType | undefined>(
   undefined
 );
+
+const formatTime = (timeInSeconds: number): string => {
+  const minutes = Math.floor(timeInSeconds / 60);
+  const seconds = Math.floor(timeInSeconds % 60);
+  const milliseconds = Math.floor((timeInSeconds % 1) * 100);
+
+  return `${minutes.toString().padStart(2, "0")}:${seconds
+    .toString()
+    .padStart(2, "0")}:${milliseconds.toString().padStart(2, "0")}`;
+};
+
+const calculateProgress = (currentTime: number, duration: number): number => {
+  return duration > 0 ? (currentTime / duration) * 100 : 0;
+};
 
 export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -53,10 +83,7 @@ export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
   });
 
   const playTrack = () => {
-    if (audioRef.current) {
-      audioRef.current.play();
-      setPlayerState((prev) => ({ ...prev, isPlaying: true }));
-    }
+    setPlayerState((prev) => ({ ...prev, isPlaying: true }));
   };
 
   const pauseTrack = () => {
@@ -79,9 +106,16 @@ export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const loadTrack = (track: { name: string }) => {
-    console.log(tracks.findIndex((t) => t.trackName === track.name));
-    setCurrentTrackIndex(tracks.findIndex((t) => t.trackName === track.name));
+  const loadTrack = (_track: { trackName: string }) => {
+    const t = tracks.find((t) => t.trackName === _track.trackName);
+    setCurrentTrackIndex(
+      tracks.findIndex((t) => t.trackName === _track.trackName)
+    );
+    console.log(t);
+    if (t?.file) {
+      audio.src = `/tracks/${t?.file}`;
+      audio.play();
+    }
   };
 
   const playNextTrack = () => {
@@ -140,8 +174,21 @@ export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
     handleTimeUpdate,
     seekTo,
     loadTrack,
-    track: currentTrackIndex ? tracks[currentTrackIndex] : undefined,
+    audio,
+    track: currentTrackIndex !== 1 ? tracks[currentTrackIndex] : undefined,
   };
+
+  useEffect(() => {
+    return setTracks(
+      DATA.map((t) => ({
+        path: t.slug,
+        artist: t.name,
+        trackName: t.trackName,
+        file: t.file || "",
+        duration: t.duration || 0,
+      }))
+    );
+  }, []);
 
   return (
     <AudioPlayerContext.Provider value={value}>

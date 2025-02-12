@@ -11,6 +11,7 @@ export const DATA = [
     ficha: `Buenos Aires, AR, 2023. 4<br/>
       Pieza sonora para el proyecto homónimo de Estefanía Santiago (https://vimeo.com/899304786)<br/>
       Sampleo de grabaciones de campo y de tutoriales de YouTube.`,
+    file: "calculos.mp3",
   },
   {
     name: "Catriel Nievas",
@@ -21,6 +22,7 @@ export const DATA = [
     instagram: "https://www.instagram.com/cat.nievas/",
     trackName: "AURAL",
     ficha: "compuesto entre junio y julio del 2024, Buenos Aires",
+    file: "calculos.mp3",
   },
   {
     name: "Angel Salazar",
@@ -31,6 +33,7 @@ export const DATA = [
     trackName: "Entramados Deseos",
     ficha: `Buenos Aires, 2024<br/>
     Restos y organismos en movimiento resuenan como fantasmas: señales de un presente que se desvanece como los límites entre lo vivo y lo muerto. Las temporalidades se disuelven y otros mundos aurales se revelan desde los escombros, recordándonos que incluso el silencio guarda ecos de un futuro incierto.`,
+    file: "calculos.mp3",
   },
   {
     name: "Salomé Rojas",
@@ -41,6 +44,7 @@ export const DATA = [
     x: "https://x.com/malditamilenial ",
     trackName: "Al fondo, el mundo se acaba lento (revisitado)",
     ficha: `Bogotá 2024. Composición con registros sonoros del incendio del Cerro El Cable en enero de 2024 y material pregrabado de uso libre. `,
+    file: "calculos.mp3",
   },
   {
     name: "Omega33",
@@ -51,6 +55,7 @@ export const DATA = [
     youtube: "https://www.youtube.com/@omega3387",
     trackName: "Chillin Thing",
     ficha: `grabado y mezclado en Catamarca (02/02/24)`,
+    file: "calculos.mp3",
   },
   {
     name: "ULISES LABARONNIE",
@@ -78,6 +83,7 @@ Su visión particular es combinar diferentes aspectos de la armonía y experimen
 
 Instrumentación: Sistema Aleas : Modular Eurorack
 `,
+    file: "calculos.mp3",
   },
   {
     name: "LIXT",
@@ -110,6 +116,7 @@ BASURA inició sus experimentos performáticos en el 2018 y desde entonces se ha
     ficha: `Buenos Aires 2024. Grabado, editado y mezclado por BASURA (Pablo Boltshauser - Valentin Pelisch)
 
 `,
+    file: "calculos.mp3",
   },
 
   {
@@ -124,6 +131,7 @@ BASURA inició sus experimentos performáticos en el 2018 y desde entonces se ha
     soundcloud: "https://soundcloud.com/maq-arena",
     trackName: "Memoria Fonográfica",
     ficha: `Producida en 2022 con registros sonoros del Archivo General de la Nación de 1982 y 1983. Esta pieza obtuvo el premio AGN a piezas sonoras 2023 organizado por el CCK y AGN.`,
+    file: "calculos.mp3",
   },
 
   {
@@ -147,6 +155,7 @@ Es fundador y director del ciclo de música experimental RUIDO y coordinó el Ce
     ficha: `Grabado en vivo en el festival EXIT 2022, Montevideo.<br/>
 Javier Areal Vélez: laptop.
 `,
+    file: "calculos.mp3",
   },
 
   {
@@ -173,6 +182,7 @@ subterránea Argentina entre otros.
     trackName: "Cuesta 02",
     soundcloud: " https://soundcloud.com/ivan-gonzalez-122244877",
     ficha: `Grabado en estudio, durante el año 2023 en Córdoba capital.`,
+    file: "calculos.mp3",
   },
 
   {
@@ -189,10 +199,10 @@ Actualmente acaba de lanzar su álbum “Plutón”, un cuento sonoro que explor
     thumb: "profiles/arwy.png",
     slug: "arwy",
     bandcamp: "https://sombra1.bandcamp.com/",
-    instagram: "https://www.instagram.com/sombra_.1/?hl=es",
     trackName: "Cálculos",
     soundcloud: "https://soundcloud.com/a_r_w_y",
     instagram: "https://www.instagram.com/a_r_w_y/",
     ficha: `Tigre (Buenos Aires) 2024 / Árwy / Narrative Ambient`,
+    file: "calculos.mp3",
   },
 ];

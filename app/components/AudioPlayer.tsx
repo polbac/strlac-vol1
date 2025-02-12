@@ -3,14 +3,7 @@
 import { useAudioPlayer } from "../context/AudioPlayerContext";
 
 export const AudioPlayer = () => {
-  const {
-    track,
-    tracks,
-    currentTrackIndex,
-    playerState,
-    playTrack,
-    pauseTrack,
-  } = useAudioPlayer();
+  const { track, playerState, playTrack, pauseTrack } = useAudioPlayer();
 
   return (
     <div className="player">
@@ -25,9 +18,14 @@ export const AudioPlayer = () => {
       <div className="playerTackName">
         {track?.trackName || "No track selected"}
       </div>
+      <div className="time">
+        {/* {playerState.formattedTime} / {playerState.formattedDuration} */}
+      </div>
       <div className="bar">
         <div className="total"></div>
-        <div className="played" style={{ width: `${playerState.progress}%` }} />
+        <div className="played" style={{ width: `${playerState.progress}%` }}>
+          {/* {playerState.formattedTime} */}
+        </div>
       </div>
     </div>
   );
