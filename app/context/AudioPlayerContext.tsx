@@ -43,28 +43,17 @@ interface PlayerState {
 interface AudioPlayerContextType {
   // Estados
   tracks: AudioTrack[];
-  currentTrackIndex: number;
+  currentTrackIndex: number | undefined;
   playerState: PlayerState;
-  audioRef: React.RefObject<HTMLAudioElement>;
 
   // Métodos
   setTracks: (tracks: AudioTrack[]) => void;
   loadTrack: (track: AudioTrack) => void;
   playTrack: () => void;
   pauseTrack: () => void;
-  stopTrack: () => void;
   playNextTrack: () => void;
   playPreviousTrack: () => void;
-  handleVolumeChange: (newVolume: number) => void;
-  handleTimeUpdate: () => void;
   track?: AudioTrack;
-  audio: {
-    duration: string;
-    paused: boolean;
-    currentTime: number;
-    play: () => void;
-    pause: () => void;
-  };
   currentTime?: string;
   duration?: string;
   loaded?: number;
@@ -125,7 +114,6 @@ export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
     if (t?.file) {
       audio.src = `/tracks/${t?.file}`;
       audio.play();
-      audio.volume = 0;
     }
   };
 
@@ -164,7 +152,6 @@ export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
     playNextTrack,
     playPreviousTrack,
     loadTrack,
-    audio,
     currentTime: formatTime(currentPlay),
     duration: formatTime(duration),
     track:
@@ -206,9 +193,11 @@ export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
   }, [audio, setCurrentPlay, setDuration, setLoaded, playNextTrack]);
 
   return (
-    <AudioPlayerContext.Provider value={value}>
-      {children}
-    </AudioPlayerContext.Provider>
+    <>
+      <AudioPlayerContext.Provider value={value}>
+        {children}
+      </AudioPlayerContext.Provider>
+    </>
   );
 };
 

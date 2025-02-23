@@ -23,7 +23,8 @@ export default function Artistxs() {
       currentTrackIndex === undefined &&
       tracks.length > 0
     ) {
-      loadTrack(tracks.find((t) => t.path === slug));
+      const t = tracks.find((t) => t.path === slug);
+      if (t) loadTrack(t);
     }
   }, [tracks, currentTrackIndex, playerState, slug]);
 
