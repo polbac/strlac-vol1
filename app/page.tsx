@@ -1,15 +1,24 @@
 "use client";
+
 import { useAudioPlayer, AudioTrack } from "./context/AudioPlayerContext";
 import { Transition } from "./components/Transition";
 import { DATA } from "./data";
 import Link from "next/link";
+import { useEffect } from "react";
 
 export default function Home() {
-  const { loadTrack, currentTrackIndex } = useAudioPlayer();
+  const { loadTrack, playerState, tracks, currentTrackIndex } =
+    useAudioPlayer();
 
-  const onClickTrack = (track: AudioTrack) => {
-    loadTrack(track);
-  };
+  useEffect(() => {
+    if (
+      !playerState.isPlaying &&
+      currentTrackIndex === undefined &&
+      tracks.length > 0
+    ) {
+      loadTrack(tracks[0]);
+    }
+  }, [tracks, currentTrackIndex, playerState]);
 
   return (
     <div className="home">

@@ -382,10 +382,6 @@ body {
   clip-path: inset(0 0 0 0);
 }
 
-.controls {
-  margin-top: 20px;
-}
-
 .redes {
   margin: auto;
   margin-top: 20px;
@@ -567,7 +563,6 @@ body {
 
 .rrss:hover {
   text-decoration: underline;
-  font-size: 1.5rem;
   color: #1a1818;
   background: #02f503;
 }
@@ -806,6 +801,7 @@ body {
   flex: 1;
 }
 
+.bar .loaded,
 .bar .total,
 .bar .played {
   width: 100%;
@@ -831,16 +827,15 @@ body {
 
 .controls {
   font-size: 1.5rem;
-  margin-top: 1px;
-  width: 20%;
-}
 
-.controls .play {
-  margin-top: -6px;
+  width: 10%;
+  display: flex;
+  height: 10vh;
+  align-items: center;
+  gap: 10px;
+  margin-top: -10px;
 }
-
-.play {
-  display: none;
+.controls2 {
 }
 
 .cursor {

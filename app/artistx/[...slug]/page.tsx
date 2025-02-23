@@ -1,16 +1,31 @@
 "use client";
 
+import { useEffect } from "react";
 import { Transition } from "../../components/Transition";
 import { DATA } from "../../data";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useAudioPlayer } from "@/app/context/AudioPlayerContext";
 
 export default function Artistxs() {
   const pathname = usePathname();
 
+  const { loadTrack, playerState, tracks, currentTrackIndex } =
+    useAudioPlayer();
+
   const slug = pathname.split("/")[2];
   const data = DATA.find((a) => a.slug === slug);
+
+  useEffect(() => {
+    if (
+      !playerState.isPlaying &&
+      currentTrackIndex === undefined &&
+      tracks.length > 0
+    ) {
+      loadTrack(tracks.find((t) => t.path === slug));
+    }
+  }, [tracks, currentTrackIndex, playerState, slug]);
 
   return (
     <>

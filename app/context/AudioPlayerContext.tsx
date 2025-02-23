@@ -5,7 +5,6 @@ import {
   useContext,
   ReactNode,
   useState,
-  useRef,
   useEffect,
 } from "react";
 
@@ -14,7 +13,17 @@ import { DATA } from "../data";
 const audio =
   typeof window !== "undefined"
     ? new Audio()
-    : ({} as { play: () => void; src: "" });
+    : ({} as {
+        play: () => void;
+        src: "";
+        pause: () => void;
+        ontimeupdate: () => void;
+        currentTime: number;
+        duration: number;
+        volume: number;
+        buffered: { length: number; end: (v: number) => number };
+        addEventListener: (event: string, fn: () => void) => void;
+      });
 
 export interface AudioTrack {
   path: string;
@@ -48,9 +57,19 @@ interface AudioPlayerContextType {
   playPreviousTrack: () => void;
   handleVolumeChange: (newVolume: number) => void;
   handleTimeUpdate: () => void;
-  seekTo: (percentage: number) => void;
   track?: AudioTrack;
-  /* audio: Audio; */
+  audio: {
+    duration: string;
+    paused: boolean;
+    currentTime: number;
+    play: () => void;
+    pause: () => void;
+  };
+  currentTime?: string;
+  duration?: string;
+  loaded?: number;
+  percent?: number;
+  onClickSeek: (e: any) => void;
 }
 
 const AudioPlayerContext = createContext<AudioPlayerContextType | undefined>(
@@ -72,9 +91,13 @@ const calculateProgress = (currentTime: number, duration: number): number => {
 };
 
 export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [duration, setDuration] = useState<number>(0);
+  const [loaded, setLoaded] = useState<number>(0);
+  const [currentPlay, setCurrentPlay] = useState<number>(0);
   const [tracks, setTracks] = useState<AudioTrack[]>([]);
-  const [currentTrackIndex, setCurrentTrackIndex] = useState<number>(0);
+  const [currentTrackIndex, setCurrentTrackIndex] = useState<
+    number | undefined
+  >(undefined);
   const [playerState, setPlayerState] = useState<PlayerState>({
     isPlaying: false,
     volume: 1,
@@ -84,102 +107,77 @@ export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
 
   const playTrack = () => {
     setPlayerState((prev) => ({ ...prev, isPlaying: true }));
+    audio.play();
   };
 
   const pauseTrack = () => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      setPlayerState((prev) => ({ ...prev, isPlaying: false }));
-    }
-  };
-
-  const stopTrack = () => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
-      setPlayerState((prev) => ({
-        ...prev,
-        isPlaying: false,
-        currentTime: 0,
-        progress: 0,
-      }));
-    }
+    audio.pause();
+    setPlayerState((prev) => ({ ...prev, isPlaying: false }));
   };
 
   const loadTrack = (_track: { trackName: string }) => {
     const t = tracks.find((t) => t.trackName === _track.trackName);
+
     setCurrentTrackIndex(
       tracks.findIndex((t) => t.trackName === _track.trackName)
     );
-    console.log(t);
+
     if (t?.file) {
       audio.src = `/tracks/${t?.file}`;
       audio.play();
+      audio.volume = 0;
     }
   };
 
   const playNextTrack = () => {
-    setCurrentTrackIndex((prev) => (prev < tracks.length - 1 ? prev + 1 : 0));
+    if (currentTrackIndex === undefined) return;
+
+    const index =
+      currentTrackIndex < tracks.length - 1 ? currentTrackIndex + 1 : 0;
+
+    loadTrack(tracks[index]);
   };
 
   const playPreviousTrack = () => {
-    setCurrentTrackIndex((prev) => (prev > 0 ? prev - 1 : tracks.length - 1));
+    if (currentTrackIndex === undefined) return;
+    const index =
+      currentTrackIndex > 0 ? currentTrackIndex - 1 : tracks.length - 1;
+
+    loadTrack(tracks[index]);
   };
 
-  const handleVolumeChange = (newVolume: number) => {
-    if (audioRef.current) {
-      audioRef.current.volume = newVolume;
-      setPlayerState((prev) => ({ ...prev, volume: newVolume }));
-    }
-  };
+  const onClickSeek = (e: any) => {
+    const total = e.target.parentElement.offsetWidth;
+    const position = e.nativeEvent.offsetX;
 
-  const handleTimeUpdate = () => {
-    if (audioRef.current) {
-      const currentTime = audioRef.current.currentTime;
-      const duration = audioRef.current.duration;
-      const progress = (currentTime / duration) * 100;
-
-      setPlayerState((prev) => ({
-        ...prev,
-        currentTime: currentTime * 1000,
-        progress,
-      }));
-    }
-  };
-
-  const seekTo = (percentage: number) => {
-    if (audioRef.current) {
-      const time = (percentage / 100) * audioRef.current.duration;
-      audioRef.current.currentTime = time;
-      setPlayerState((prev) => ({
-        ...prev,
-        currentTime: time * 1000,
-        progress: percentage,
-      }));
-    }
+    const percent = (position * 100) / total;
+    audio.currentTime = duration * (percent / 100);
   };
 
   const value = {
     tracks,
     currentTrackIndex,
     playerState,
-    audioRef,
     setTracks,
     playTrack,
     pauseTrack,
-    stopTrack,
     playNextTrack,
     playPreviousTrack,
-    handleVolumeChange,
-    handleTimeUpdate,
-    seekTo,
     loadTrack,
     audio,
-    track: currentTrackIndex !== 1 ? tracks[currentTrackIndex] : undefined,
+    currentTime: formatTime(currentPlay),
+    duration: formatTime(duration),
+    track:
+      currentTrackIndex !== undefined && currentTrackIndex !== undefined
+        ? tracks[currentTrackIndex]
+        : undefined,
+    percent: calculateProgress(currentPlay, duration),
+    onClickSeek,
+    loaded,
   };
 
   useEffect(() => {
-    return setTracks(
+    setTracks(
       DATA.map((t) => ({
         path: t.slug,
         artist: t.name,
@@ -188,7 +186,24 @@ export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
         duration: t.duration || 0,
       }))
     );
-  }, []);
+
+    audio.ontimeupdate = () => {
+      const duration = audio.duration;
+      const currentTime = audio.currentTime;
+
+      setCurrentPlay(currentTime);
+      setDuration(duration);
+
+      if (audio.buffered.length) {
+        const loaded = (100 * audio.buffered.end(0)) / audio.duration;
+        setLoaded(loaded);
+      }
+    };
+
+    audio.addEventListener("ended", () => {
+      playNextTrack();
+    });
+  }, [audio, setCurrentPlay, setDuration, setLoaded, playNextTrack]);
 
   return (
     <AudioPlayerContext.Provider value={value}>
