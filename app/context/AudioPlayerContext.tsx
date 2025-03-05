@@ -154,7 +154,7 @@ export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
     playPreviousTrack,
     loadTrack,
     currentTime: formatTime(currentPlay),
-    duration: formatTime(duration),
+    duration: duration ? formatTime(duration) : "",
     track:
       currentTrackIndex !== undefined && currentTrackIndex !== undefined
         ? tracks[currentTrackIndex]

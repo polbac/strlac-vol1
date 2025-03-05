@@ -58,7 +58,7 @@ export const AudioPlayer = () => {
               pointerEvents: "none",
             }}
           >
-            {currentTime} / {duration}
+            {duration ? `${currentTime} / ${duration}` : ""}
           </span>
         </div>
         <div
