@@ -58,7 +58,7 @@ export default function Home() {
               <Link
                 className="trackField"
                 /* onClick={() => onClickTrack(track as unknown as AudioTrack)} */
-                href={`/artistx/${track.slug}`}
+                href={`artistx/${track.slug}`}
               >
                 <div className="track">{track.name}</div>
                 <div className="trackName">{track.trackName}</div>

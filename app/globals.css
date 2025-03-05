@@ -10,7 +10,7 @@ body {
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background: #1a1818;
+  background: #000000;
   color: #0afe53;
 
   animation: textShadow 1.033s infinite;
@@ -109,7 +109,7 @@ body {
   width: 100%;
   animation: jerkup 100ms infinite;
   height: 90vh;
-  background: #1a1818;
+  background: #000000;
 }
 
 .app-container::after {
@@ -563,7 +563,7 @@ body {
 
 .rrss:hover {
   text-decoration: underline;
-  color: #1a1818;
+  color: #000000;
   background: #02f503;
 }
 
@@ -585,12 +585,12 @@ body {
   right: 0;
 
   z-index: 999999999;
-  background: #1a1818;
+  background: #000000;
   overflow-y: scroll;
 }
 
 .home {
-  background-color: #1a1818;
+  background-color: #000000;
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -787,7 +787,7 @@ body {
   height: 10vh;
   position: fixed;
   z-index: 99999999;
-  background: #1a1818;
+  background: #000000;
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);

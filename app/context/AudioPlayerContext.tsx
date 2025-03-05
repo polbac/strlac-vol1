@@ -23,6 +23,7 @@ const audio =
         volume: number;
         buffered: { length: number; end: (v: number) => number };
         addEventListener: (event: string, fn: () => void) => void;
+        removeEventListener: (event: string) => void;
       });
 
 export interface AudioTrack {
@@ -173,7 +174,9 @@ export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
         duration: t.duration || 0,
       }))
     );
+  }, []);
 
+  useEffect(() => {
     audio.ontimeupdate = () => {
       const duration = audio.duration;
       const currentTime = audio.currentTime;
@@ -187,9 +190,9 @@ export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
       }
     };
 
-    audio.addEventListener("ended", () => {
-      playNextTrack();
-    });
+    audio.addEventListener("ended", playNextTrack);
+
+    return () => audio.removeEventListener("ended", playNextTrack);
   }, [audio, setCurrentPlay, setDuration, setLoaded, playNextTrack]);
 
   return (
