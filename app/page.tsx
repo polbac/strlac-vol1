@@ -22,29 +22,12 @@ export default function Home() {
 
   return (
     <div className="home">
-      <div className="flex space-between">
-        <div>
-          <img src="/green/uniko-1.jpg" width="250" />
-        </div>
-        <div className="flex-1">
+      <div className="big-image">
+        <Link href={"/aventura"}>
           <Transition>
-            <img
-              src="/logo.png"
-              width="500"
-              style={{
-                margin: "auto",
-                marginTop: "2rem",
-                marginBottom: "2rem",
-                height: "20vh",
-                width: "auto",
-                maxWidth: "500px",
-              }}
-            />
+            <img src="/home/home.png" width="100%" />
           </Transition>
-        </div>
-        <div>
-          <img src="/green/uniko-2.jpg" width="250" />
-        </div>
+        </Link>
       </div>
       <div className="tracks">
         <Transition>
@@ -62,38 +45,20 @@ export default function Home() {
               >
                 <div className="track">{track.name}</div>
                 <div className="trackName">{track.trackName}</div>
-                <div className="duration">{track.duration}MS</div>
+                <div className="duration">{track.length}</div>
               </Link>
             ))}
           </div>
         </Transition>
       </div>
-
-      <Transition>
-        <div className="redes">
-          <a
-            target="_blank"
-            className="rrss"
-            href="https://strlacrecords.bandcamp.com/"
-          >
-            → bandcamp
-          </a>
-          <a
-            target="_blank"
-            className="rrss"
-            href="https://www.instagram.com/strlacrecords/"
-          >
-            → instagram
-          </a>
-          <a
-            target="_blank"
-            className="rrss"
-            href="https://soundcloud.com/strlac-records"
-          >
-            → soundcloud
-          </a>
+      <div className="brand">
+        <div className="title">STRLC</div>
+        <div className="img-container">
+          <Link href={"/record"}>
+            <img src="/home/logo.png" width="100%" />
+          </Link>
         </div>
-      </Transition>
+      </div>
     </div>
   );
 }

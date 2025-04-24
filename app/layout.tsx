@@ -2,21 +2,30 @@
 
 import { usePathname } from "next/navigation";
 
-import Image from "next/image";
-/* import { Player } from "./components/Player"; */
 import { AudioPlayer } from "./components/AudioPlayer";
+import { Transition } from "./components/Transition";
 import "./globals.css";
-import Link from "next/link";
+
 import { useEffect, useState, useRef, LegacyRef } from "react";
 import { Intro } from "./components/Intro";
 import { AudioPlayerProvider } from "./context/AudioPlayerContext";
+import {
+  BackgroundProvider,
+  useBackgroundContext,
+} from "./context/BackgroundContext";
+
+enum Screen {
+  INTRO,
+  LOGO,
+  APP,
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [showIntro, setShowIntro] = useState(true);
+  const [showIntro, setShowIntro] = useState<Screen>(Screen.INTRO);
   const pathname = usePathname();
   const scrollRef = useRef<HTMLDivElement>();
   const [backgroundPositionY, setBackgroundPosition] = useState(0);
@@ -44,34 +53,53 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.jpeg" sizes="any" />
       </head>
       <body>
-        <AudioPlayerProvider>
-          <main className="scanlines">
-            <div className="screen">
-              <div className="overlay">
-                <div className="app-container ">
-                  {showIntro ? (
-                    <Intro onComplete={() => setShowIntro(false)} />
-                  ) : (
-                    <>
-                      <p className="copy">PRIMER COMPILADO STRLAC 2024</p>
-                      <div className="flex cols-container">
-                        <div
-                          className="col1"
-                          ref={
-                            scrollRef as unknown as LegacyRef<HTMLDivElement>
-                          }
-                        >
-                          <div>{children}</div>
-                        </div>
+        <BackgroundProvider>
+          <AudioPlayerProvider>
+            <main
+              className={`scanlines ${
+                showIntro === Screen.LOGO ? "green-logo" : "black"
+              }`}
+            >
+              <div className="screen">
+                <div className="overlay">
+                  <div className="app-container ">
+                    {showIntro == Screen.INTRO && (
+                      <Intro onComplete={() => setShowIntro(Screen.LOGO)} />
+                    )}
+
+                    {showIntro == Screen.LOGO && (
+                      <div>
+                        <Transition>
+                          <img
+                            src="/screen-logo.png"
+                            width="200"
+                            onClick={() => setShowIntro(Screen.APP)}
+                          />
+                        </Transition>
                       </div>
-                      <AudioPlayer />
-                    </>
-                  )}
+                    )}
+
+                    {showIntro == Screen.APP && (
+                      <>
+                        <div className="flex cols-container">
+                          <div
+                            className="col1"
+                            ref={
+                              scrollRef as unknown as LegacyRef<HTMLDivElement>
+                            }
+                          >
+                            <div>{children}</div>
+                          </div>
+                        </div>
+                        <AudioPlayer />
+                      </>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          </main>
-        </AudioPlayerProvider>
+            </main>
+          </AudioPlayerProvider>
+        </BackgroundProvider>
 
         <div className="scanline"></div>
         <div className="scanline"></div>

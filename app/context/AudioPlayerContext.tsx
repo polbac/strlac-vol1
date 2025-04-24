@@ -113,7 +113,7 @@ export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
     );
 
     if (t?.file) {
-      audio.src = `/tracks/${t?.file}`;
+      audio.src = `/audio/${t?.file}`;
       audio.play();
     }
   };

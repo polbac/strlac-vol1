@@ -27,7 +27,10 @@ export const Intro: FC<{ onComplete: () => void }> = ({ onComplete }) => {
   return (
     <div className="intro" ref={ref}>
       <Transition>
-        <div dangerouslySetInnerHTML={{ __html: logo }} />
+        <div
+          style={{ transform: "scale(0.8)" }}
+          dangerouslySetInnerHTML={{ __html: logo }}
+        />
       </Transition>
       <TypeWriter text={"SYSTEM INITIALIZING..."} onComplete={checkScroll} />
       <TypeWriter

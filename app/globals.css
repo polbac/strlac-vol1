@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color: #0afe53;
+}
+
 body {
   font-family: "TopazPlus a600a1200a4000", Arial, Helvetica, sans-serif;
   display: flex;
@@ -11,7 +15,7 @@ body {
   justify-content: center;
   align-items: center;
   background: #000000;
-  color: #0afe53;
+  color: var(--color);
 
   animation: textShadow 1.033s infinite;
 }
@@ -103,13 +107,14 @@ body {
   }
 }
 
-.app-container {
-  max-width: 1200px;
+.black .app-container {
   margin: auto;
-  width: 100%;
+  width: 90vh;
   animation: jerkup 100ms infinite;
   height: 90vh;
   background: #000000;
+  border: 1px solid var(--color);
+  padding: 1rem;
 }
 
 .app-container::after {
@@ -134,7 +139,6 @@ body {
 }
 
 .col1 {
-  padding: 1rem;
 }
 
 .col2 {
@@ -540,7 +544,7 @@ body {
   text-align: left;
 }
 .trackField:hover {
-  background: #0afe53;
+  background: rgb(10, 254, 83);
   color: black;
 }
 .trackField {
@@ -548,11 +552,116 @@ body {
   justify-content: space-between;
 }
 
-.tracks {
-  border: 5px double #0afe53;
+.str-humanx-container {
+  display: flex;
+  gap: 10px;
+}
+
+.str-humanx-container .str-humanx {
+  border: 1px solid var(--color);
+  padding: 1rem;
+  width: 33.33%;
+}
+
+.str-humanx-container .str-humanx .humanx {
+  border: 1px solid var(--color);
+  margin-bottom: 2rem;
+}
+
+.blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.window {
+  border: 1px solid var(--color);
+  color: var(--color);
+}
+
+.window-title {
+  background: var(--color);
+  display: block;
+  color: black;
+  padding: 0.1rem;
+  height: 1.2rem;
+}
+
+.bio-bar {
   width: 100%;
+  display: flex;
+  margin-top: 0.5rem;
+}
+
+.bio-bar-1 {
+  height: 3vh;
+  background: rgb(10, 254, 83, 1);
+}
+
+.bio-bar-2 {
+  height: 3vh;
+  background: rgb(10, 254, 83, 0.5);
+}
+
+.bio-bar-3 {
+  height: 3vh;
+  background: rgb(10, 254, 83, 0.2);
+}
+
+.window .window-container {
+  padding: 0.5rem;
+}
+
+.tracks {
+  border: 1px solid var(--color);
+  width: 76%;
   margin: auto;
-  padding: 2rem;
+  overflow-y: auto;
+  position: absolute;
+  right: 0;
+  top: 35%;
+  height: 38%;
+}
+
+.artistx-id {
+  border: 1px solid var(--color);
+  width: 74%;
+}
+
+.trackField {
+  padding: 1px;
+}
+.volver {
+  background: var(--color);
+  color: black;
+
+  display: block;
+}
+.trackColumn {
+  background: var(--color);
+  color: black;
+}
+
+.brand {
+  position: absolute;
+  bottom: 8%;
+  right: 0;
+  width: 16%;
+  border: 1px solid var(--color);
+}
+.brand .img-container {
+  margin: 1rem;
+}
+
+.brand .title {
+  background: var(--color);
+  color: black;
+  text-align: left;
+  padding-left: 0.2rem;
 }
 
 .rrss {
@@ -587,6 +696,7 @@ body {
   z-index: 999999999;
   background: #000000;
   overflow-y: scroll;
+  padding: 1rem;
 }
 
 .home {
@@ -783,15 +893,15 @@ body {
 
 .player {
   width: 100%;
-  border: 5px double #0afe53;
-  height: 10vh;
+  border: 1px solid var(--color);
+  height: 5vh;
   position: fixed;
   z-index: 99999999;
   background: #000000;
-  bottom: 10px;
+  bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
-  max-width: 1200px;
+  max-width: calc(90vh - 2rem);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -822,13 +932,13 @@ body {
 }
 
 .playerTackName {
-  width: 20%;
+  width: 35%;
 }
 
 .controls {
   font-size: 1.5rem;
 
-  width: 10%;
+  width: 15%;
   display: flex;
   height: 10vh;
   align-items: center;
@@ -859,4 +969,52 @@ body {
   white-space: pre;
   margin: 0;
   color: #0afe53;
+}
+
+.aventura {
+  position: fixed;
+  background: var(--green);
+  top: 0;
+  left: 0;
+  z-index: 99999999999999;
+  bottom: 0;
+  right: 0;
+  background: var(--color);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.aventura img {
+  height: 95vh;
+}
+.green .app-container {
+  width: 100%;
+  height: 100%;
+}
+
+.scanlines.green {
+  background: var(--color);
+}
+.aventura-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 30vh;
+  flex-direction: column;
+}
+
+.green-logo {
+  background: var(--color);
+  width: 100vw;
+  height: 100vh;
+}
+
+.green-logo.scanlines .overlay::after {
+  background-image: none;
 }
