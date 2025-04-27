@@ -653,10 +653,13 @@ body {
   width: 16%;
   border: 1px solid var(--color);
 }
+.download .img-container,
 .brand .img-container {
   margin: 1rem;
+  text-align: center;
 }
 
+.download .title,
 .brand .title {
   background: var(--color);
   color: black;
@@ -999,7 +1002,7 @@ body {
 .aventura-center {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 
   position: absolute;
   top: 0;
@@ -1017,4 +1020,62 @@ body {
 
 .green-logo.scanlines .overlay::after {
   background-image: none;
+}
+
+.hide-player .player {
+  display: none;
+}
+
+.download {
+  position: absolute;
+  left: 10px;
+  bottom: 59px;
+
+  background: black;
+  width: 16%;
+  border: 1px solid var(--color);
+}
+
+.download-window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  border: 1px solid var(--color);
+  transform: translate(-50%, -50%);
+  background: black;
+  padding: 3rem;
+  text-align: center;
+}
+
+.download-window .button {
+  background: var(--color);
+  color: black;
+  width: 150px;
+  height: 20px;
+  line-height: 20px;
+  display: inline-block;
+  margin: 2px;
+}
+.download-window .button:hover {
+  background: white;
+  color: black;
+}
+
+.download-window input {
+  border: 1px solid var(--color);
+  background-color: black;
+  font-size: 14px;
+  width: 150px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 999999999;
 }

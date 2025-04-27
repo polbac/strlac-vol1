@@ -1,14 +1,17 @@
 "use client";
 
-import { useAudioPlayer, AudioTrack } from "./context/AudioPlayerContext";
+import { useAudioPlayer } from "./context/AudioPlayerContext";
 import { Transition } from "./components/Transition";
+import { Download } from "./components/Download";
 import { DATA } from "./data";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const { loadTrack, playerState, tracks, currentTrackIndex } =
     useAudioPlayer();
+
+  const [download, showDownload] = useState(false);
 
   useEffect(() => {
     if (
@@ -59,6 +62,15 @@ export default function Home() {
           </Link>
         </div>
       </div>
+
+      <div className="download" onClick={() => showDownload(true)}>
+        <div className="title">DESCARGA</div>
+        <div className="img-container">
+          <img src="/download.svg" style={{ width: "30px", height: "30px" }} />
+        </div>
+      </div>
+
+      {download && <Download onClose={() => showDownload(false)} />}
     </div>
   );
 }
