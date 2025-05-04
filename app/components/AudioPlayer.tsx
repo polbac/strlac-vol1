@@ -15,24 +15,39 @@ export const AudioPlayer = () => {
     loaded,
     playNextTrack,
     playPreviousTrack,
+    isPlaying,
   } = useAudioPlayer();
-
+  console.log({ isPlaying });
   return (
     <div className="player">
       <div className="controls">
         <div className="" onClick={playPreviousTrack}>
           ←
         </div>
-        {playerState.isPlaying ? (
+        {isPlaying ? (
           <div
             className="pause"
             onClick={pauseTrack}
-            style={{ position: "relative", top: "8px", fontSize: "15px" }}
+            style={{
+              fontSize: "14px",
+              position: "relative",
+              top: "10px",
+              width: "14px",
+            }}
           >
             ||
           </div>
         ) : (
-          <div className="play" onClick={playTrack}>
+          <div
+            className="play"
+            onClick={playTrack}
+            style={{
+              fontSize: "14px",
+              position: "relative",
+              top: "10px",
+              width: "14px",
+            }}
+          >
             ▶
           </div>
         )}

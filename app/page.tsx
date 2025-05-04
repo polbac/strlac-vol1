@@ -40,11 +40,14 @@ export default function Home() {
               <div className="trackName">ID</div>
               <div className="duration">DURACIÓN</div>
             </div>
-            {DATA.map((track) => (
+            {DATA.map((track, index) => (
               <Link
                 className="trackField"
-                /* onClick={() => onClickTrack(track as unknown as AudioTrack)} */
                 href={`artistx/${track.slug}`}
+                key={`t-${index}`}
+                style={{
+                  color: currentTrackIndex === index ? "white" : "inherit",
+                }}
               >
                 <div className="track">{track.name}</div>
                 <div className="trackName">{track.trackName}</div>
@@ -55,21 +58,28 @@ export default function Home() {
         </Transition>
       </div>
       <div className="brand">
-        <div className="title">STRLC</div>
-        <div className="img-container">
-          <Link href={"/record"}>
-            <img src="/home/logo.png" width="100%" />
+        <div className="title">OPCIONES</div>
+        <div style={{ textAlign: "left" }}>
+          <Link className="navmenu" href="/record" style={{ display: "block" }}>
+            STRLAC
+          </Link>
+          <Link
+            className="navmenu"
+            href="#"
+            onClick={() => showDownload(true)}
+            style={{ display: "block" }}
+          >
+            EXTRAS
+          </Link>
+          <Link
+            className="navmenu"
+            href="/aventura"
+            style={{ display: "block" }}
+          >
+            ORACULOS
           </Link>
         </div>
       </div>
-
-      <div className="download" onClick={() => showDownload(true)}>
-        <div className="title">DESCARGA</div>
-        <div className="img-container">
-          <img src="/download.svg" style={{ width: "30px", height: "30px" }} />
-        </div>
-      </div>
-
       {download && <Download onClose={() => showDownload(false)} />}
     </div>
   );

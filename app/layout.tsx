@@ -105,7 +105,7 @@ export default function RootLayout({
         <div className="scanline"></div>
         <div className="flicker"></div>
 
-        <link href="/font2/stylesheet.css" rel="stylesheet" />
+        <link href="/consolas/stylesheet.css" rel="stylesheet" />
       </body>
     </html>
   );

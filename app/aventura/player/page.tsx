@@ -1,17 +1,17 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { DATA } from "../../data";
+import { ORACULOS } from "../../oraculos";
 import { Transition } from "../../components/Transition";
 
 export default function Strlac() {
   const [text, setText] = useState("");
 
   useEffect(() => {
-    setText(DATA[Math.floor(Math.random() * DATA.length)].bio);
+    setText(ORACULOS[Math.floor(Math.random() * ORACULOS.length)]);
   }, []);
   return (
-    <Link href={"/aventura/pelea"} className="aventura-center">
+    <Link href={"/"} className="aventura-center">
       <Transition>
         <img
           src="/aventura/person.png"

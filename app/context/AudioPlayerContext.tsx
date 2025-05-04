@@ -24,6 +24,7 @@ const audio =
         buffered: { length: number; end: (v: number) => number };
         addEventListener: (event: string, fn: () => void) => void;
         removeEventListener: (event: string) => void;
+        paused: boolean;
       });
 
 export interface AudioTrack {
@@ -60,6 +61,7 @@ interface AudioPlayerContextType {
   loaded?: number;
   percent?: number;
   onClickSeek: (e: any) => void;
+  isPlaying?: boolean;
 }
 
 const AudioPlayerContext = createContext<AudioPlayerContextType | undefined>(
@@ -114,7 +116,7 @@ export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
 
     if (t?.file) {
       audio.src = `/audio/${t?.file}`;
-      audio.volume = 0;
+      // audio.volume = 100;
       audio.play();
     }
   };
@@ -126,6 +128,8 @@ export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
       currentTrackIndex < tracks.length - 1 ? currentTrackIndex + 1 : 0;
 
     loadTrack(tracks[index]);
+
+    setPlayerState((prev) => ({ ...prev, isPlaying: true }));
   };
 
   const playPreviousTrack = () => {
@@ -163,6 +167,7 @@ export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
     percent: calculateProgress(currentPlay, duration),
     onClickSeek,
     loaded,
+    isPlaying: audio.paused ? false : true,
   };
 
   useEffect(() => {

@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: "TopazPlus a600a1200a4000", Arial, Helvetica, sans-serif;
+  font-family: "Consolas", Arial, Helvetica, sans-serif;
   display: flex;
   font-size: 0.75rem;
   width: 100vw;
@@ -550,6 +550,7 @@ body {
 .trackField {
   display: flex;
   justify-content: space-between;
+  padding: 0.2rem;
 }
 
 .str-humanx-container {
@@ -618,6 +619,7 @@ body {
 
 .tracks {
   border: 1px solid var(--color);
+  background: black;
   width: 76%;
   margin: auto;
   overflow-y: auto;
@@ -633,7 +635,7 @@ body {
 }
 
 .trackField {
-  padding: 1px;
+  padding: 0.3rem;
 }
 .volver {
   background: var(--color);
@@ -644,6 +646,8 @@ body {
 .trackColumn {
   background: var(--color);
   color: black;
+  position: sticky;
+  top: 0;
 }
 
 .brand {
@@ -811,89 +815,6 @@ body {
   display: none;
 }
 
-@media (max-width: 640px) {
-  .app-container {
-    width: 90%;
-  }
-  .col1,
-  .col2 {
-    width: 100%;
-  }
-
-  .cols-container {
-    display: block;
-  }
-
-  .menu-icon {
-    display: block;
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    line-height: 6px;
-    font-size: 45px;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-  }
-  .menu-icon:hover {
-    color: white;
-  }
-
-  .col2 {
-    position: fixed;
-    right: 0;
-    top: -40px;
-    width: 164px;
-  }
-
-  .button {
-    width: 100px;
-  }
-
-  .str-vol-1 {
-    width: 150px;
-  }
-
-  .thumb {
-    width: 100% !important;
-    margin-bottom: 50px;
-    height: auto !important;
-  }
-
-  .thumb:hover {
-  }
-
-  .thumb img {
-    width: 100% !important;
-    height: 300px !important;
-  }
-
-  .artistxs {
-    display: block;
-    margin-top: 60px;
-  }
-
-  .artistx {
-    display: block;
-  }
-  .artistx .left {
-    margin-bottom: 40px;
-  }
-  .artistx .left,
-  .artistx .right {
-    width: 100%;
-    padding-left: 0;
-  }
-
-  .redes {
-    display: none;
-  }
-
-  .col2 {
-    background-image: none;
-  }
-}
-
 .player {
   width: 100%;
   border: 1px solid var(--color);
@@ -943,10 +864,12 @@ body {
 
   width: 15%;
   display: flex;
-  height: 10vh;
+  height: 3vh;
   align-items: center;
   gap: 10px;
   margin-top: -10px;
+
+  align-items: stretch;
 }
 .controls2 {
 }
@@ -1048,7 +971,9 @@ body {
   padding: 3rem;
   text-align: center;
 }
-
+.download-window p {
+  margin-bottom: 2rem;
+}
 .download-window .button {
   background: var(--color);
   color: black;
@@ -1062,12 +987,16 @@ body {
   background: white;
   color: black;
 }
-
+.download-window .fields {
+  margin-bottom: 0.3rem;
+}
 .download-window input {
   border: 1px solid var(--color);
   background-color: black;
   font-size: 14px;
   width: 150px;
+  padding: 0.2rem;
+  margin-top: 0.3rem;
 }
 
 .overlay {
@@ -1078,4 +1007,135 @@ body {
   right: 0;
   background: rgba(0, 0, 0, 0.3);
   z-index: 999999999;
+}
+.navmenu {
+  padding: 0.2rem;
+}
+.navmenu:hover {
+  color: black;
+  background: var(--color);
+}
+
+.blink {
+  animation: blinker 0.41s step-start infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.textura2 {
+}
+
+@media (max-width: 640px) {
+  .tracks {
+    width: 100%;
+    right: 0;
+    top: 20%;
+    height: 54%;
+  }
+
+  .brand {
+    position: absolute;
+    bottom: 8%;
+    right: 0;
+    width: 100%;
+  }
+  .str-humanx-container .str-humanx {
+    width: 100%;
+  }
+  .str-humanx-container {
+    display: block;
+  }
+  .playerTackName {
+    width: 70%;
+  }
+  .bar {
+    display: none;
+  }
+  .black .app-container {
+    height: 100vh;
+  }
+  .app-container {
+    width: 90%;
+  }
+  .col1,
+  .col2 {
+    width: 100%;
+  }
+
+  .cols-container {
+    display: block;
+  }
+
+  .menu-icon {
+    display: block;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    line-height: 6px;
+    font-size: 45px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+  }
+  .menu-icon:hover {
+    color: white;
+  }
+
+  .col2 {
+    position: fixed;
+    right: 0;
+    top: -40px;
+    width: 164px;
+  }
+
+  .button {
+    width: 100px;
+  }
+
+  .str-vol-1 {
+    width: 150px;
+  }
+
+  .thumb {
+    width: 100% !important;
+    margin-bottom: 50px;
+    height: auto !important;
+  }
+
+  .thumb:hover {
+  }
+
+  .thumb img {
+    width: 100% !important;
+    height: 300px !important;
+  }
+
+  .artistxs {
+    display: block;
+    margin-top: 60px;
+  }
+
+  .artistx {
+    display: block;
+  }
+  .artistx .left {
+    margin-bottom: 40px;
+  }
+  .artistx .left,
+  .artistx .right {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .redes {
+    display: none;
+  }
+
+  .col2 {
+    background-image: none;
+  }
 }

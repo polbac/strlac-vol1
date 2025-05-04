@@ -2,7 +2,7 @@ export const DATA = [
   {
     name: "Catriel Nievas",
     bio: `Compositor y artista sonoro. Su música sumerge a la escucha en oleadas de loops, samples y paisajes sonoros. Explora la relación entre espacio, cuerpo y sonido utilizando atmósferas ambient y drone para trabajar la percepción del tiempo y la intimidad sonora. Emplea instrumentos electrónicos, acústicos, su voz procesada y grabaciones de campo para generar experiencias de escucha inmersiva.`,
-    thumb: "detalle/avatar/latigx.png",
+    thumb: "detalle/avatar/catriel-nievas.png",
     slug: "catriel",
     soundcloud: "https://soundcloud.com/catriel-nievas",
     instagram: "https://www.instagram.com/cat.nievas/",

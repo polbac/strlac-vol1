@@ -26,10 +26,9 @@ export default function Strlac() {
               <img src="/detalle/avatar/pol.png" />
             </div>
             <div className="texto">
-              nicolas saganias es artista sonoro. miembro del colectivo
-              artístico-mutante autobuzz y de strlac records, sello dedicado a
-              la divulgación de nuevos horizontes sonoros. devoto del sonido y
-              de la unicidad tecno-natural que ve en todo.
+              pablo G. bacchetta a.k.a polbac (almagro, 1985) es músico
+              electrónico, dj y desarrollador de código. amante nostálgico del
+              net art y defensor del open source.
             </div>
           </Transition>
         </div>

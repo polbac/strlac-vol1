@@ -154,42 +154,96 @@ export default function Artistxs() {
         </div>
       </div>
 
-      <div className="flex" style={{ gap: "10px", marginTop: "10px" }}>
-        <div className="artistx-id window" style={{ width: "50%" }}>
-          <div className="window-title">Contakto</div>
-          <div className="window-container">
-            {data?.instagram && (
-              <a className="rrss" href={data.instagram}>
-                → instagram
-              </a>
-            )}
-            {data?.soundcloud && (
-              <a className="rrss" href={data.soundcloud}>
-                → soundcloud
-              </a>
-            )}
-            {data?.website && (
-              <a className="rrss" href={data.website}>
-                → website
-              </a>
-            )}
-            {data?.linktree && (
-              <a className="rrss" href={data.linktree}>
-                → linktree
-              </a>
-            )}
-            {data?.x && (
-              <a className="rrss" href={data.x}>
-                → x
-              </a>
-            )}
-            {data?.youtube && (
-              <a className="rrss" href={data.youtube}>
-                → youtube
-              </a>
-            )}
+      <div
+        className="flex"
+        style={{
+          gap: "10px",
+          marginTop: "10px",
+          width: "100%",
+          height: "calc(38vh - 45px)",
+        }}
+      >
+        <div
+          className=""
+          style={{
+            width: "75%",
+
+            display: "flex",
+            gap: "10px",
+            flexDirection: "column",
+          }}
+        >
+          <div style={{ display: "flex", width: "100%", gap: "10px" }}>
+            <div className="window" style={{ width: "75%" }}>
+              <div className="window-title">Contakto</div>
+              <div
+                className="window-container"
+                style={{ position: "relative" }}
+              >
+                {data?.instagram && (
+                  <a className="rrss" href={data.instagram}>
+                    → instagram
+                  </a>
+                )}
+                {data?.soundcloud && (
+                  <a className="rrss" href={data.soundcloud}>
+                    → soundcloud
+                  </a>
+                )}
+                {data?.website && (
+                  <a className="rrss" href={data.website}>
+                    → website
+                  </a>
+                )}
+                {data?.linktree && (
+                  <a className="rrss" href={data.linktree}>
+                    → linktree
+                  </a>
+                )}
+                {data?.x && (
+                  <a className="rrss" href={data.x}>
+                    → x
+                  </a>
+                )}
+                {data?.youtube && (
+                  <a className="rrss" href={data.youtube}>
+                    → youtube
+                  </a>
+                )}
+              </div>
+            </div>
+            <div
+              style={{
+                width: "25%",
+                background: `url(/detalle/textura2.png)`,
+                backgroundPosition: "center center",
+                backgroundSize: "cover",
+              }}
+            ></div>
           </div>
+          <div
+            style={{
+              width: "100%",
+              background: `url(/detalle/textura1.png)`,
+              backgroundPosition: "center center",
+              backgroundSize: "cover",
+              border: "1px solid #0afe53",
+              flex: 1,
+            }}
+          ></div>
         </div>
+
+        <div
+          style={{
+            width: "25%",
+            border: "1px solid #0afe53",
+            background: `url(/detalle/constelacion/${data?.slug}.png)`,
+            backgroundPosition: "center center",
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            height: "calc(36vh - 30px)",
+          }}
+        ></div>
       </div>
     </>
   );
