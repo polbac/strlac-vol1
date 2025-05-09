@@ -8,6 +8,14 @@ export default function Strlac() {
   const [text, setText] = useState("");
 
   useEffect(() => {
+    document.querySelector(".scanlines")?.classList.add("hide-player");
+
+    return () => {
+      document.querySelector(".scanlines")?.classList.remove("hide-player");
+    };
+  }, []);
+
+  useEffect(() => {
     setText(ORACULOS[Math.floor(Math.random() * ORACULOS.length)]);
   }, []);
   return (
@@ -18,7 +26,9 @@ export default function Strlac() {
           style={{ width: "100%", height: "auto" }}
         />
       </Transition>
-      <p>{text}</p>
+      <p className="blink" style={{ fontSize: "1rem" }}>
+        {text}
+      </p>
     </Link>
   );
 }

@@ -12,10 +12,11 @@ export default function Strlac() {
               <img src="/detalle/avatar/nico.png" />
             </div>
             <div className="texto">
-              nicolas saganias es artista sonoro. miembro del colectivo
-              artístico-mutante autobuzz y de strlac records, sello dedicado a
-              la divulgación de nuevos horizontes sonoros. devoto del sonido y
-              de la unicidad tecno-natural que ve en todo.
+              nicolas saganias (buenos aires 1988) es programador, desarrollador
+              tecnológico y artista. miembro del colectivo artístico mutante
+              AUTOBUZZ y de strlac records, net-label dedicado a la divulgación
+              de nuevos horizontes sonoros. devoto del sonido, el código y
+              hardware libre.
             </div>
           </Transition>
         </div>

@@ -922,6 +922,9 @@ body {
 .scanlines.green {
   background: var(--color);
 }
+.aventura-center p {
+  margin-top: 2vh;
+}
 .aventura-center {
   display: flex;
   align-items: center;
@@ -931,7 +934,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 30vh;
+  bottom: 0;
   flex-direction: column;
 }
 

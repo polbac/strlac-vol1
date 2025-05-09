@@ -181,22 +181,22 @@ export default function Artistxs() {
                 style={{ position: "relative" }}
               >
                 {data?.instagram && (
-                  <a className="rrss" href={data.instagram}>
+                  <a className="rrss" href={data.instagram} target="_blank">
                     → instagram
                   </a>
                 )}
                 {data?.soundcloud && (
-                  <a className="rrss" href={data.soundcloud}>
+                  <a className="rrss" href={data.soundcloud} target="_blank">
                     → soundcloud
                   </a>
                 )}
                 {data?.website && (
-                  <a className="rrss" href={data.website}>
+                  <a className="rrss" href={data.website} target="_blank">
                     → website
                   </a>
                 )}
                 {data?.linktree && (
-                  <a className="rrss" href={data.linktree}>
+                  <a className="rrss" href={data.linktree} target="_blank">
                     → linktree
                   </a>
                 )}
@@ -206,7 +206,7 @@ export default function Artistxs() {
                   </a>
                 )}
                 {data?.youtube && (
-                  <a className="rrss" href={data.youtube}>
+                  <a className="rrss" href={data.youtube} target="_blank">
                     → youtube
                   </a>
                 )}

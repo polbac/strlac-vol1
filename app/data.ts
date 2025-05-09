@@ -226,7 +226,7 @@ Actualmente acaba de lanzar su álbum “Plutón”, un cuento sonoro que explor
   },
 
   {
-    name: "Lu Rizzo",
+    name: "Luciano Rizzo",
     bio: `Luciana Rizzo (Argentina, 1990) es artista sonora, música y performer. Vive y trabaja en Buenos Aires. Estudió Composición con Medios Electroacústicos en la Universidad Nacional de Quilmes. Toca la batería desde los 16 años, y con ella encontró un lugar en la experimentación y en la improvisación. Ha tocado en diversos proyectos grupales y, en paralelo, comenzó a desarrollar un solo set basado en baterías híbridas, samples, grabaciones de campo y acoples que se mueve entre canciones, ambientes e improvisaciones. Es integrante del Club del Gamelán, un ensamble que toca repertorio de Bali, Indonesia. En el último tiempo se dedica a producir documentales sonoros y piezas radiofónicas.`,
     thumb: "detalle/avatar/lu.png",
     slug: "lu-rizzo",

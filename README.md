@@ -1,4 +1,8 @@
-# TODO
-
--player
--mobile
+- FKTR pasa mañana el disco en RAR
+- FKTR pasa mas imagenes para la aventura ponerla donde cante el ocote
+- Todas las pantallas verdes del oraculo que esten en el mismo marco 4:3
+- Laberinto: cambiar viejo y poner texto de oraculo
+- Poner como favicon el pajarito
+- En artistas poner siguiente
+- En extras agregar imagen
+- player on load
