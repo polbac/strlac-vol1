@@ -1144,3 +1144,7 @@ body {
     background-image: none;
   }
 }
+
+* {
+  overflow-y: hidden; /* Oculta solo la barra vertical */
+}

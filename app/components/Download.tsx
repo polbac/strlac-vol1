@@ -25,7 +25,10 @@ export const Download: FC<{ onClose: () => void }> = ({ onClose }) => {
     setError(false);
 
     if (await checkCode(data.id as never, data.code as never)) {
-      downloadURI("/consolas.zip");
+      window.open(
+        "https://drive.google.com/drive/folders/1E540nGG5cYVWDtss8p0Z89byh3whNQ8c?usp=sharing",
+        "_blank"
+      );
       return;
     }
     setError(true);
