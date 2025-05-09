@@ -50,7 +50,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>STRLAC VOL 1</title>
-        <link rel="icon" href="/favicon.jpeg" sizes="any" />
+        <link rel="icon" href="/aventura/heroe.png" sizes="any" />
       </head>
       <body>
         <BackgroundProvider>
