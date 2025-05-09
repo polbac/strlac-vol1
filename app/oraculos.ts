@@ -19,7 +19,7 @@ export const ORACULOS = [
   "La mente no es un lugar seguro.",
   "El tiempo solo es una prisión si lo crees así.",
   "Ellos vigilan, pero nunca intervienen.",
-  "Nada muere jamás realmente. Ghost in the Shell",
+  "Nada muere jamás realmente. ",
   "No todos los prisioneros quieren escapar.",
   "Elige sabiamente. No tendrás otra oportunidad.",
   "Tu mundo es solo una simulación.",

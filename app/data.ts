@@ -107,7 +107,7 @@ Es docente académico, mentor y productor artístico.<br/><br/>
 
 Su visión particular es combinar diferentes aspectos de la armonía y experimentación sonora con conceptos naturalistas, científicos y filosóficos.
 `,
-    thumb: "detalle/avatar/1.png",
+    thumb: "detalle/avatar/aleas.png",
     slug: "aleas",
     soundcloud: "https://soundcloud.com/ulises-labaronnie-music",
     instagram: "https://www.instagram.com/uliseslabaronnie/",

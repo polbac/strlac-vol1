@@ -34,21 +34,32 @@ export const Download: FC<{ onClose: () => void }> = ({ onClose }) => {
   return (
     <div className="overlay">
       <div className="download-window">
-        <p>ingresa el codigo para descargar el extra</p>
-        <form method="POST" onSubmit={handleSubmit}>
-          <div className="fields">
-            <input name="id" type="password" placeholder="numero" required />
-            <input name="code" type="password" placeholder="id" required />
-          </div>
-          <button className="button" disabled={pending as never} type="submit">
-            DESCARGAR
-          </button>
-          <button className="button" onClick={() => onClose()}>
-            SALIR
-          </button>
+        <img
+          src="/aventura/7c.png"
+          height="100"
+          style={{ marginTop: "-100px" }}
+        />
+        <div style={{ marginTop: "-50px" }}>
+          <p>ingresa el codigo para descargar el extra</p>
+          <form method="POST" onSubmit={handleSubmit}>
+            <div className="fields">
+              <input name="id" type="password" placeholder="numero" required />
+              <input name="code" type="password" placeholder="id" required />
+            </div>
+            <button
+              className="button"
+              disabled={pending as never}
+              type="submit"
+            >
+              DESCARGAR
+            </button>
+            <button className="button" onClick={() => onClose()}>
+              SALIR
+            </button>
 
-          {error && <div className="blink">ERROR! Intenta nuevamente</div>}
-        </form>
+            {error && <div className="blink">ERROR! Intenta nuevamente</div>}
+          </form>
+        </div>
       </div>
     </div>
   );

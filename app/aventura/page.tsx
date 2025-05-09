@@ -19,7 +19,7 @@ export default function Strlac() {
   return (
     <Link href={"/aventura/tunel"} className="aventura">
       <Transition>
-        <img src="/aventura/1.png" />
+        <img src="/aventura/1.png" height="300" />
       </Transition>
     </Link>
   );

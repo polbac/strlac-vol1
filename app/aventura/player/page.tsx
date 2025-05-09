@@ -19,12 +19,9 @@ export default function Strlac() {
     setText(ORACULOS[Math.floor(Math.random() * ORACULOS.length)]);
   }, []);
   return (
-    <Link href={"/"} className="aventura-center">
+    <Link href={"/aventura/fractal"} className="aventura-center">
       <Transition>
-        <img
-          src="/aventura/person.png"
-          style={{ width: "100%", height: "auto" }}
-        />
+        <img src="/aventura/person.png" style={{ height: "400px" }} />
       </Transition>
       <p className="blink" style={{ fontSize: "1rem" }}>
         {text}

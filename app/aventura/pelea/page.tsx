@@ -14,7 +14,7 @@ export default function Strlac() {
     };
   }, []);
   return (
-    <Link href={"/"} className="aventura-center">
+    <Link href={"/aventura/castillo"} className="aventura-center">
       <Transition>
         <img
           src="/aventura/pelea.png"

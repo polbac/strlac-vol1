@@ -107,7 +107,7 @@ body {
   }
 }
 
-.black .app-container {
+.app-container {
   margin: auto;
   width: 90vh;
   animation: jerkup 100ms infinite;
@@ -597,7 +597,12 @@ body {
   display: flex;
   margin-top: 0.5rem;
 }
-
+.bio-bar-1,
+.bio-bar-2,
+.bio-bar-3 {
+  width: 0;
+  transition: width 1s ease-in-out;
+}
 .bio-bar-1 {
   height: 3vh;
   background: rgb(10, 254, 83, 1);
@@ -912,11 +917,7 @@ body {
   justify-content: center;
 }
 .aventura img {
-  height: 95vh;
-}
-.green .app-container {
-  width: 100%;
-  height: 100%;
+  height: 500px;
 }
 
 .scanlines.green {
@@ -939,11 +940,12 @@ body {
 }
 
 .green-logo {
-  background: var(--color);
   width: 100vw;
   height: 100vh;
 }
-
+.green-logo .app-container {
+  background: var(--color);
+}
 .green-logo.scanlines .overlay::after {
   background-image: none;
 }
@@ -975,7 +977,7 @@ body {
   text-align: center;
 }
 .download-window p {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 .download-window .button {
   background: var(--color);

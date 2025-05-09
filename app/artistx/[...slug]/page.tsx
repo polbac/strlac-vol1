@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { DATA } from "../../data";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAudioPlayer } from "@/app/context/AudioPlayerContext";
-
+import { Transition } from "../../components/Transition";
 function generarCaosAleatorio(longitud = 30) {
   const caracteres = "!@#$%^&*()_+[]{}|;:',.<>?/\\-=~`1234567890";
   let resultado = "";
@@ -45,6 +45,9 @@ function mapStringToThreePercentages(str: string) {
 export default function Artistxs() {
   const pathname = usePathname();
 
+  const [showBar, setShowBar] = useState(false);
+  const [backgroundPosition, setBackgroundPosition] = useState(0);
+
   const { loadTrack, playerState, tracks, currentTrackIndex } =
     useAudioPlayer();
 
@@ -53,6 +56,12 @@ export default function Artistxs() {
   const index = DATA.findIndex((a) => a.slug === slug);
 
   useEffect(() => {
+    const inter = setInterval(() => setBackgroundPosition((p) => p + 1), 100);
+    return () => clearInterval(inter);
+  }, []);
+
+  useEffect(() => {
+    setShowBar(false);
     if (
       !playerState.isPlaying &&
       currentTrackIndex === undefined &&
@@ -61,11 +70,13 @@ export default function Artistxs() {
       const t = tracks.find((t) => t.path === slug);
       if (t) loadTrack(t);
     }
+    setShowBar(true);
   }, [tracks, currentTrackIndex, playerState, slug]);
 
   const percent1 = mapStringToThreePercentages(data?.name as string);
   const percent2 = mapStringToThreePercentages(data?.trackName as string);
   const percent3 = mapStringToThreePercentages(data?.bio as string);
+  const nextArtist = index === DATA.length - 1 ? DATA[0] : DATA[index + 1];
 
   return (
     <>
@@ -77,20 +88,46 @@ export default function Artistxs() {
             </Link>
           </div>
           <div style={{ marginTop: "10px" }}>
-            <img src={`/${data?.thumb}`} />
+            <Transition>
+              <img src={`/${data?.thumb}`} />
+            </Transition>
           </div>
         </div>
 
         <div className="artistx-id window">
-          <div className="window-title">ID</div>
+          <div
+            className="window-title"
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            <p>ID</p>
+            <Link
+              href={`/artistx/${nextArtist.slug}`}
+              style={{
+                border: "1px solid black",
+                background: "black",
+                color: "#0afe53",
+                paddingLeft: "0.5rem",
+                paddingRight: "0.5rem",
+                fontSize: "1rem",
+                lineHeight: "15px",
+              }}
+            >
+              →
+            </Link>
+          </div>
           <div
             className="window-container"
             style={{ maxHeight: "24vh", overflow: "auto" }}
           >
-            <p>
+            <p className="blink">
               <img src={`/detalle/ascii/${data?.slug}.png`} />
             </p>
-            <p dangerouslySetInnerHTML={{ __html: data?.bio || "" }}></p>
+            <Transition>
+              <p dangerouslySetInnerHTML={{ __html: data?.bio || "" }}></p>
+            </Transition>
           </div>
         </div>
       </div>
@@ -110,45 +147,45 @@ export default function Artistxs() {
           <div className="bio-bar">
             <div
               className="bio-bar-1"
-              style={{ width: `${percent1[0]}%` }}
+              style={{ width: showBar ? `${percent1[0]}%` : 0 }}
             ></div>
             <div
               className="bio-bar-2"
-              style={{ width: `${percent1[1]}%` }}
+              style={{ width: showBar ? `${percent1[1]}%` : 0 }}
             ></div>
             <div
               className="bio-bar-3"
-              style={{ width: `${percent1[2]}%` }}
+              style={{ width: showBar ? `${percent1[2]}%` : 0 }}
             ></div>
           </div>
 
           <div className="bio-bar">
             <div
               className="bio-bar-1"
-              style={{ width: `${percent2[0]}%` }}
+              style={{ width: showBar ? `${percent2[0]}%` : 0 }}
             ></div>
             <div
               className="bio-bar-2"
-              style={{ width: `${percent2[1]}%` }}
+              style={{ width: showBar ? `${percent2[1]}%` : 0 }}
             ></div>
             <div
               className="bio-bar-3"
-              style={{ width: `${percent2[2]}%` }}
+              style={{ width: showBar ? `${percent2[2]}%` : 0 }}
             ></div>
           </div>
 
           <div className="bio-bar">
             <div
               className="bio-bar-1"
-              style={{ width: `${percent3[0]}%` }}
+              style={{ width: showBar ? `${percent3[0]}%` : 0 }}
             ></div>
             <div
               className="bio-bar-2"
-              style={{ width: `${percent3[1]}%` }}
+              style={{ width: showBar ? `${percent3[1]}%` : 0 }}
             ></div>
             <div
               className="bio-bar-3"
-              style={{ width: `${percent3[2]}%` }}
+              style={{ width: showBar ? `${percent3[2]}%` : 0 }}
             ></div>
           </div>
         </div>
@@ -225,7 +262,7 @@ export default function Artistxs() {
             style={{
               width: "100%",
               background: `url(/detalle/textura1.png)`,
-              backgroundPosition: "center center",
+              backgroundPosition: `${backgroundPosition}px ${backgroundPosition}px`,
               backgroundSize: "cover",
               border: "1px solid #0afe53",
               flex: 1,
