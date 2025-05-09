@@ -23,10 +23,7 @@ export default function Strlac() {
         <img src="/aventura/laberinto.png" />
       </Transition>
       <div className="flex" style={{ gap: "10px" }}>
-        <div
-          className="blink"
-          style={{ width: "66.66%", marginTop: "2rem", fontSize: "1rem" }}
-        >
+        <div style={{ width: "66.66%", marginTop: "2rem", fontSize: "1rem" }}>
           {text}
         </div>
 

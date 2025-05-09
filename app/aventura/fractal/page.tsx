@@ -13,7 +13,7 @@ export default function Strlac() {
     };
   }, []);
   return (
-    <Link href={"/aventura/pelea"} className="aventura-center">
+    <Link href={"/aventura/castillo"} className="aventura-center">
       <Transition>
         <img src="/aventura/fractal.gif" style={{ width: "100%" }} />
       </Transition>

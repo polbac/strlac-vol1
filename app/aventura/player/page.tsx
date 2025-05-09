@@ -23,7 +23,7 @@ export default function Strlac() {
       <Transition>
         <img src="/aventura/person.png" style={{ height: "400px" }} />
       </Transition>
-      <p className="blink" style={{ fontSize: "1rem" }}>
+      <p className="" style={{ fontSize: "1rem" }}>
         {text}
       </p>
     </Link>

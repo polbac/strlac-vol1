@@ -122,7 +122,7 @@ export default function Artistxs() {
             className="window-container"
             style={{ maxHeight: "24vh", overflow: "auto" }}
           >
-            <p className="blink">
+            <p className="">
               <img src={`/detalle/ascii/${data?.slug}.png`} />
             </p>
             <Transition>

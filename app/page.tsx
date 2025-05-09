@@ -69,7 +69,7 @@ export default function Home() {
             onClick={() => showDownload(true)}
             style={{ display: "block" }}
           >
-            EXTRAS
+            DESCARGAS
           </Link>
           <Link
             className="navmenu"
