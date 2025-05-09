@@ -116,7 +116,7 @@ export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
 
     if (t?.file) {
       audio.src = `/audio/${t?.file}`;
-      audio.volume = 0;
+      audio.volume = 100;
       audio.play();
     }
   };
