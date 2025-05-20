@@ -142,7 +142,7 @@ Instrumentación: Sistema Aleas : Modular Eurorack
   },
 
   {
-    name: "Javier Areal",
+    name: "Javier Areal Vélez",
     bio: `
     Javier Areal Vélez (Buenos Aires) es compositor, improvisador y gestor cultural. 
 Actualmente investiga formatos de colaboración humanx-máquina para la interpretación de música electrónica en vivo, explorando la superposición (poli)ritmos generativos mediante el uso de samples, síntesis, luces y robots. El primer disco de este proyecto será editado en 2025 en el sello alemán Mille Plateaux / Force Inc.
@@ -190,7 +190,7 @@ BASURA inició sus experimentos performáticos en el 2018 y desde entonces se ha
   },
 
   {
-    name: "ARWY",
+    name: "ÁRWY",
     bio: `
     Árwy es una artista e investigadora multidisciplinaria dedicada principalmente a la música y la performance. En su trabajo podemos encontrar inspiraciones del minimalismo, el ambient narrativo, la ciencia ficción, la poesía, la ópera, el noise, la fantasía y el arte gótico.
 Su música recrea una atmósfera hipnótica y onírica que a su vez es cruda, oscura y real.
